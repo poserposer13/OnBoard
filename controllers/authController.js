@@ -3,8 +3,6 @@ const util = require('util');
 const router = require('express').Router();
 const db = require('../models');
 const signAsync = util.promisify(jwt.sign);
-​
-//
 router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -38,7 +36,7 @@ router.post('/login', async (req, res) => {
         res.status(500).json(err);
     }
 });
-​
+
 // Route for signing up a user.
 // We create a user, tossing back an error fi it fails
 router.post('/signup', async (req, res) => {
@@ -73,5 +71,5 @@ router.post('/signup', async (req, res) => {
         res.status(500).json(err);
     }
 });
-​
+
 module.exports = router;
