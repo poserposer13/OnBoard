@@ -2,10 +2,7 @@ const jwt = require('jsonwebtoken');
 const util = require('util');
 const router = require('express').Router();
 const db = require('../models');
-
 const signAsync = util.promisify(jwt.sign);
-
-//
 router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -20,7 +17,7 @@ router.post('/login', async (req, res) => {
         }
         // Create JWT token
         const token = await signAsync(
-            { _id: user._id, email: user.email },
+            { _id: user._id, email: user.email, isAdmin: user.isAdmin },
             process.env.SECRET,
             {
                 expiresIn: '24h',
@@ -55,7 +52,7 @@ router.post('/signup', async (req, res) => {
         }
         // Create JWT token
         const token = await signAsync(
-            { _id: user._id, email: user.email },
+            { _id: user._id, email: user.email, isAdmin: user.isAdmin },
             process.env.SECRET,
             {
                 expiresIn: '24h',
