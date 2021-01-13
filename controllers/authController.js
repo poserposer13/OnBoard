@@ -2,7 +2,6 @@ const jwt = require('jsonwebtoken');
 const util = require('util');
 const router = require('express').Router();
 const db = require('../models');
-​
 const signAsync = util.promisify(jwt.sign);
 ​
 //
