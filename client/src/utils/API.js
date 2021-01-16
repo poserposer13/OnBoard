@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default {
+const API = {
     // Gets all tasks
     getTasks: function () {
         return axios.get('/api/tasks');
@@ -18,4 +18,5 @@ export default {
         return axios.post('/api/tasks', taskData);
     }
 };
+export default API;
 
