@@ -8,7 +8,8 @@ const Navbar = () => {
             <h3>Navbar</h3>
             <ul>
                 <li><Link to="/">Home</Link></li>
-                <li><Link to='/notes'>Notes</Link></li>
+                
+                <li><Link to='/tasks'>Tasks</Link></li>
                 {isLoggedIn() ?
                     <>
                         <li>Hello, {getProfile().email}</li>
