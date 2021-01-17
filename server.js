@@ -35,6 +35,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // Add all our backend routes
 app.use(routes);
+app.use('/admin', require('./utils/admin'));
 
 // Send all other requests to react app
 app.get('*', (req, res) => {
@@ -45,10 +46,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/project3', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
-    useFindAndModify: false
+    useFindAndModify: false,
 });
 
 app.listen(PORT, function () {
-    console.log(`Server now on port ${PORT}!`);
+    console.log(`now listening on localhost:${PORT}`);
 });
-
