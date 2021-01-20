@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
 import API from '../utils/API';
-import TaskForm from '../components/TaskForm';
+
 
 const Tasks = function () {
     const [tasks, setTasks] = useState([]);
     // so we can refresh the Page *after* we get a response back from the server on our new task!
-    const [refresh, toggleRefresh] = useState(0);
-    const refreshParent = () => {
-        toggleRefresh(refresh + 1);
-    };
+    const [refresh] = useState(0);
+
 
     // Notice deps has refresh in there - this way when it increments from someone submitting
     // it calls fetch tasks again.
@@ -32,7 +30,7 @@ const Tasks = function () {
                     );
                 })}
             </ol>
-            <TaskForm didSubmit={refreshParent} />
+
         </div>
     );
 };

@@ -35,8 +35,7 @@ const Login = () => {
     const location = useLocation();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // For our redirector
-    const [redirectToSignup, toggleRedirect] = useState(false);
+   
     // This is the key part to our redirector. We can pull the prior location out here, if it exists
     const { from } = location.state || { from: { pathname: '/' } };
 
@@ -51,14 +50,6 @@ const Login = () => {
         return <Redirect to={location.state || '/'} />;
     }
 
-    if (redirectToSignup) {
-        return <Redirect to={{
-            // If someone goes to signup, this transfers the redirect
-            pathname: '/signup',
-            state: { from: from }
-        }}
-        />;
-    }
 
     return (
         <div>
@@ -93,7 +84,7 @@ const Login = () => {
                             </form>
                         </Typography>
                         <Typography className={classes.pos} color="textSecondary">
-                            Need an account?  <Button type="submit" size="small" onClick={() => toggleRedirect(true)}>Signup Here</Button>
+                            Need an account? Speak with your administrator!
                         </Typography>
                         <CardActions variant="body2" component="p">
 
