@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-
 const Schema = mongoose.Schema;
-
 const userSchema = new Schema(
     {
         createdAt: {
@@ -20,19 +18,26 @@ const userSchema = new Schema(
             trim: true,
             required: 'Enter a password'
         },
-        notes: [
-            { type: Schema.Types.ObjectId, ref: 'Note' }
+        isAdmin: {
+            type: Boolean,
+            default: false,
+        },
+        // notes: [
+        //     { type: Schema.Types.ObjectId, ref: 'Note' }
+        // ],
+        tasks: [
+            { type: Schema.Types.ObjectId, ref: 'Task'}
         ]
     }
 );
 
 userSchema.pre('save', function (next) {
     const user = this;
-
     // only hash the password if it has been modified (or is new)
     if (!user.isModified('password')) {
         return next();
     }
+
 
     user.password = bcrypt.hashSync(
         user.password,

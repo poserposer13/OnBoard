@@ -43,6 +43,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Add all our backend routes
 app.use(routes);
+app.use('/admin', require('./utils/admin'));
 
 // Send all other requests to react app
 app.get("*", (req, res) => {

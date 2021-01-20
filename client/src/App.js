@@ -4,9 +4,8 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import axios from 'axios';
 import useAuth from './hooks/auth';
 import Home from './pages/Home';
-import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Notes from './pages/Notes';
+import Tasks from './pages/Tasks';
 
 
 function App() {
@@ -38,14 +37,12 @@ function App() {
                 <Route exact path='/'>
                     <Home />
                 </Route>
-                <Route path='/signup'>
-                    <Signup />
-                </Route>
+                
                 <Route path='/login'>
                     <Login />
                 </Route>
-                <PrivateRoute exact path='/notes'>
-                    <Notes />
+                <PrivateRoute exact path='/tasks'>
+                    <Tasks />
                 </PrivateRoute>
             </Switch>
         </Router>

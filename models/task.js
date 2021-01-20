@@ -2,17 +2,15 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const noteSchema = new Schema(
+const taskSchema = new Schema(
     {
         title: {
             type: String,
-            trim: true,
-            required: 'Enter a note title'
+            trim: true
         },
-        body: {
-            type: String,
-            trim: true,
-            required: 'Enter a note body'
+        isComplete: {
+            type: Boolean,
+            default: false
         },
         date: {
             type: Date,
@@ -25,6 +23,7 @@ const noteSchema = new Schema(
     }
 );
 
-const Note = mongoose.model('Note', noteSchema);
 
-module.exports = Note;
+const Task = mongoose.model('Task', taskSchema);
+
+module.exports = Task;
