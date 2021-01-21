@@ -6,6 +6,10 @@ import useAuth from './hooks/auth';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Tasks from './pages/Tasks';
+import MyDocuments from './pages/MyDocuments';
+import Policies from './pages/Policies';
+import Team from './pages/Team';
+import Calendar from './pages/Calendar';
 
 
 function App() {
@@ -45,6 +49,18 @@ function App() {
                 </Route>
                 <PrivateRoute exact path='/tasks'>
                     <Tasks />
+                </PrivateRoute>
+                <PrivateRoute exact path='/mydocuments'>
+                    <MyDocuments />
+                </PrivateRoute>
+                <PrivateRoute exact path='/policies'>
+                    <Policies />
+                </PrivateRoute>
+                <PrivateRoute exact path='/team'>
+                    <Team />
+                </PrivateRoute>
+                <PrivateRoute exact path='/calendar'>
+                    <Calendar />
                 </PrivateRoute>
             </Switch>
         </Router>
