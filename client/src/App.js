@@ -19,17 +19,20 @@ function App() {
         // Do something with response data
         return response;
     }, error => {
-        const { message } = error.toJSON();
-        // If we had time, we could write our own custom method to the auth middleware
-        // However, we are just gonna use their message.
-        if(message === 'Request failed with status code 401'){
-            logout();
+        try {
+            const { message } = error.toJSON();
+            // If we had time, we could write our own custom method to the auth middleware
+            // However, we are just gonna use their message.
+            if (message === 'Request failed with status code 401') {
+                logout();
+            }
         }
+        catch (err) { console.error(err);}
         // Any status codes that falls outside the range of 2xx cause this function to trigger
         // Do something with response error
         return Promise.reject(error);
     });
-    
+
     return (
         <Router>
             <Navbar />
@@ -37,7 +40,6 @@ function App() {
                 <Route exact path='/'>
                     <Home />
                 </Route>
-                
                 <Route path='/login'>
                     <Login />
                 </Route>
