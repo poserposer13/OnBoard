@@ -16,14 +16,15 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
+import { mainListItems } from './listItems';
+
 
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
             <Link color="inherit" href="https://material-ui.com/">
-                Your Website
+                OnBoard
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -79,6 +80,7 @@ const useStyles = makeStyles((theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
         }),
+        
     },
     drawerPaperClose: {
         overflowX: 'hidden',
@@ -161,8 +163,7 @@ export default function Dashboard() {
                 </div>
                 <Divider />
                 <List>{mainListItems}</List>
-                <Divider />
-                <List>{secondaryListItems}</List>
+                
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />

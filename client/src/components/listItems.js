@@ -4,10 +4,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ListIcon from '@material-ui/icons/List';
+import DescriptionIcon from '@material-ui/icons/Description';
 import PeopleIcon from '@material-ui/icons/People';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
+import PolicyIcon from '@material-ui/icons/Policy';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 
 export const mainListItems = (
@@ -20,7 +21,13 @@ export const mainListItems = (
         </ListItem>
         <ListItem button>
             <ListItemIcon>
-                <ShoppingCartIcon />
+                <ListIcon />
+            </ListItemIcon>
+            <ListItemText primary="Tasks" />
+        </ListItem>
+        <ListItem button>
+            <ListItemIcon>
+                <DescriptionIcon />
             </ListItemIcon>
             <ListItemText primary="Documents" />
         </ListItem>
@@ -28,19 +35,19 @@ export const mainListItems = (
             <ListItemIcon>
                 <PeopleIcon />
             </ListItemIcon>
-            <ListItemText primary="Customers" />
+            <ListItemText primary="Team" />
         </ListItem>
         <ListItem button>
             <ListItemIcon>
-                <BarChartIcon />
+                <PolicyIcon />
             </ListItemIcon>
-            <ListItemText primary="Reports" />
+            <ListItemText primary="Policies" />
         </ListItem>
         <ListItem button>
             <ListItemIcon>
-                <LayersIcon />
+                <CalendarTodayIcon />
             </ListItemIcon>
-            <ListItemText primary="Integrations" />
+            <ListItemText primary="Calender" />
         </ListItem>
     </div>
 );
