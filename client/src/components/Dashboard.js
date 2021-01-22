@@ -10,13 +10,15 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
+// import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+// import NotificationsIcon from '@material-ui/icons/Notifications';
+import LockIcon from '@material-ui/icons/Lock';
 import { mainListItems } from './listItems';
+import useAuth from '../hooks/auth';
 
 
 function Copyright() {
@@ -116,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -124,7 +126,7 @@ export default function Dashboard() {
         setOpen(false);
     };
     
-
+    const { isLoggedIn, logout, getProfile } = useAuth();
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -140,12 +142,19 @@ export default function Dashboard() {
                         <MenuIcon />
                     </IconButton>
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        OnBoard
+                        {isLoggedIn() ?
+                            <>
+                                <li>Hello, {getProfile().email}</li>
+                                <li><Link onClick={() => logout()} to='/'>Logout</Link></li>
+                            </>
+                            :
+                            <>
+                                <li><Link to="/login">Login</Link></li>
+                            </>
+                        }
                     </Typography>
-                    <IconButton color="inherit">
-                        <Badge badgeContent={4} color="secondary">
-                            <NotificationsIcon />
-                        </Badge>
+                    <IconButton color="inherit" href='/login'>
+                        <LockIcon />
                     </IconButton>
                 </Toolbar>
             </AppBar>

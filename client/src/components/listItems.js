@@ -10,6 +10,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import PolicyIcon from '@material-ui/icons/Policy';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
 
 
 function ListItemLink(props) {
@@ -53,6 +54,12 @@ export const mainListItems = (
                 <CalendarTodayIcon />
             </ListItemIcon>
             <ListItemText primary="Calender" />
+        </ListItemLink>
+        <ListItemLink href='/training' button>
+            <ListItemIcon>
+                <MenuBookIcon />
+            </ListItemIcon>
+            <ListItemText primary="Training" />
         </ListItemLink>
     </div>
 );
