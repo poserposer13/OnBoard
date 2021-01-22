@@ -1,4 +1,4 @@
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
@@ -10,6 +10,7 @@ import MyDocuments from './pages/MyDocuments';
 import Policies from './pages/Policies';
 import Team from './pages/Team';
 import Calendar from './pages/Calendar';
+import Dashboard from './components/Dashboard';
 
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
 
     return (
         <Router>
-            <Navbar />
+            <Dashboard />
             <Switch>
                 <Route exact path='/'>
                     <Home />
