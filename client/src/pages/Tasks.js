@@ -14,18 +14,23 @@ const Tasks = function () {
         fetchTasks();
     }, [refresh]);
 
+    // function handleCompletion
+    // onClick={handleCompletion}
+
     async function fetchTasks() {
         const { data } = await API.getTasks();
         setTasks(data);
+        console.log(data);
     }
     return (
         <div>
             <h2>Tasks</h2>
             <ol>
                 {tasks.map(task => {
+                    console.log(task.isComplete);
                     return (
                         <li key={task._id}>
-                            <strong>{task.title}</strong> {task.body} <sub>from: {task.user.email}</sub>
+                            <strong>{task.title}</strong> {task.body} <sub>from: {task.user.email}</sub> <sub >Is complete: {task.isComplete ? 'true':'false'}</sub>
                         </li>
                     );
                 })}
