@@ -28,6 +28,7 @@ const adminBro = new AdminBro({
     ],
 });
 
+
 module.exports = adminRouter = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
     authenticate: async (email, password) => {
         const user = await User.findOne({ email });
@@ -41,3 +42,4 @@ module.exports = adminRouter = AdminBroExpress.buildAuthenticatedRouter(adminBro
     },
     cookiePassword: 'some-secret-password-used-to-secure-cookie',
 });
+
