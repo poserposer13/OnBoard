@@ -9,15 +9,17 @@ class Home extends React.Component {
 
       formData.append('img', file[0]);
 
-      fetch('http://localhost:3000/', {
+      fetch('/file', {
           method: 'POST',
           body: formData,
-      }).then((res) => {
-          console.log(res);
-      });
-
-      document.getElementById('img').setAttribute('src', `http://localhost:3000/${file[0].name}`);
-      console.log(file[0]);
+      }).then(res => res.json())
+          .then((res) => {
+              console.log(res);
+              document
+                  .getElementById('img')
+                  .setAttribute('src', `/file/${res.filename}`);
+              console.log(file[0]);
+          });
   };
 
   render() {
@@ -25,33 +27,34 @@ class Home extends React.Component {
           <div>
               <h2>Home Page</h2>
               <p>Welcome Home</p>
-              <div className='container'>
-                  <div className='jumbotron'>
-                      <h1 className='display-4'>Image Uplaoder</h1>
-                      <p className='lead'>
+              <div className="container">
+                  <div className="jumbotron">
+                      <h1 className="display-4">Image Uplaoder</h1>
+                      <p className="lead">
               This is a simple application to upload and retrieve images from a
               database
                       </p>
-                      <hr className='my-4' />
+                      <hr className="my-4" />
                   </div>
-                  <div className='input-group mb-3'>
-                      <div className='custom-file'>
+                  <div className="input-group mb-3">
+                      <div className="custom-file">
                           <input
-                              type='file'
-                              className='custom-file-input'
-                              id='inputGroupFile01'
-                              aria-describedby='inputGroupFileAddon01'
+                              type="file"
+                              className="custom-file-input"
+                              id="inputGroupFile01"
+                              aria-describedby="inputGroupFileAddon01"
                           />
-                          <label className='custom-file-label' htmlFor='inputGroupFile01'>
+                          <label className="custom-file-label" htmlFor="inputGroupFile01">
                 Choose file
                           </label>
                       </div>
                   </div>
-                  <button type='button' className='btn btn-primary' onClick={this.Post}>
+                  <button type="button" className="btn btn-primary" onClick={this.Post}>
             Upload
                   </button>
                   <img
-                      id='img'
+                      id="img"
+                      alt="upload"
                       style={{
                           display: 'block',
                       }}
