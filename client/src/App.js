@@ -11,6 +11,7 @@ import Policies from './pages/Policies';
 import Team from './pages/Team';
 import Calendar from './pages/Calendar';
 import Dashboard from './components/Dashboard';
+import Training from './pages/Training';
 
 
 function App() {
@@ -62,6 +63,9 @@ function App() {
                 </PrivateRoute>
                 <PrivateRoute exact path='/calendar'>
                     <Calendar />
+                </PrivateRoute>
+                <PrivateRoute exact path='/training'>
+                    <Training />
                 </PrivateRoute>
             </Switch>
         </Router>
