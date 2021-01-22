@@ -22,5 +22,5 @@ const adminBro = new AdminBro({
         }
     ],
 });
-
-module.exports = adminRouter = AdminBroExpress.buildRouter(adminBro);
+const adminRouter = AdminBroExpress.buildRouter(adminBro);
+module.exports = adminRouter;
