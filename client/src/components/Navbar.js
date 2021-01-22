@@ -13,6 +13,7 @@ const Navbar = () => {
                 <li><Link to='/policies'>Policies</Link></li>
                 <li><Link to='/team'>Team</Link></li>
                 <li><Link to='/calendar'>Calendar</Link></li>
+                <li><Link to='/training'>Training</Link></li>
                 {isLoggedIn() ?
                     <>
                         <li>Hello, {getProfile().email}</li>
