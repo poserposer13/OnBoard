@@ -11,6 +11,11 @@ import PolicyIcon from '@material-ui/icons/Policy';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 
+
+function ListItemLink(props) {
+    return <ListItem button component="a" {...props} />;
+}
+
 export const mainListItems = (
     <div>
         <ListItem button>
@@ -19,36 +24,36 @@ export const mainListItems = (
             </ListItemIcon>
             <ListItemText primary="Dashboard" />
         </ListItem>
-        <ListItem button>
+        <ListItemLink href='/tasks' button>
             <ListItemIcon>
                 <ListIcon />
             </ListItemIcon>
             <ListItemText primary="Tasks" />
-        </ListItem>
-        <ListItem button>
+        </ListItemLink>
+        <ListItemLink href='/mydocuments' button>
             <ListItemIcon>
                 <DescriptionIcon />
             </ListItemIcon>
             <ListItemText primary="Documents" />
-        </ListItem>
-        <ListItem button>
+        </ListItemLink>
+        <ListItemLink href='/team' button>
             <ListItemIcon>
                 <PeopleIcon />
             </ListItemIcon>
             <ListItemText primary="Team" />
-        </ListItem>
-        <ListItem button>
+        </ListItemLink>
+        <ListItemLink href='/policies' button>
             <ListItemIcon>
                 <PolicyIcon />
             </ListItemIcon>
             <ListItemText primary="Policies" />
-        </ListItem>
-        <ListItem button>
+        </ListItemLink>
+        <ListItemLink href='/calender' button>
             <ListItemIcon>
                 <CalendarTodayIcon />
             </ListItemIcon>
             <ListItemText primary="Calender" />
-        </ListItem>
+        </ListItemLink>
     </div>
 );
 

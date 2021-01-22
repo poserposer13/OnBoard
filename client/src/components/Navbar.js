@@ -39,7 +39,7 @@
 //             </AppBar>
 //         </div>
 //     );
-}
+// }
 
 // const Navbar = () => {
 //     const { isLoggedIn, logout, getProfile } = useAuth();
