@@ -3,7 +3,6 @@ require('dotenv').config();
 // Configuration check.
 // Disable this at your own risk
 require('./utils/verifyConfiguration')();
-
 // Requiring necessary npm packages
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -31,6 +30,8 @@ if (process.env.NODE_ENV !== 'production') {
     app.use(morgan('dev'));
 }
 
+app.use('/admin', require('./utils/admin'));
+
 // enable compression middleware
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
@@ -43,7 +44,6 @@ if (process.env.NODE_ENV === 'production') {
 
 // Add all our backend routes
 app.use(routes);
-app.use('/admin', require('./utils/admin'));
 
 const conn = mongoose.createConnection('mongodb://localhost/project3');
 
