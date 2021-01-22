@@ -17,6 +17,7 @@ const API = {
     saveTask: function (taskData) {
         return axios.post('/api/tasks', taskData);
     }
+    // changeCompletion: /api/task/ + _id
 };
 export default API;
 
