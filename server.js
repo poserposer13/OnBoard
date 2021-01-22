@@ -3,7 +3,6 @@ require('dotenv').config();
 // Configuration check.
 // Disable this at your own risk
 require('./utils/verifyConfiguration')();
-
 // Requiring necessary npm packages
 const express = require('express');
 const path = require('path');
@@ -25,6 +24,8 @@ if (process.env.NODE_ENV !== 'production') {
     app.use(morgan('dev'));
 }
 
+app.use('/admin', require('./utils/admin'));
+
 // enable compression middleware
 app.use(compression());
 app.use(express.urlencoded({ extended: true }));
@@ -35,7 +36,6 @@ if (process.env.NODE_ENV === 'production') {
 
 // Add all our backend routes
 app.use(routes);
-app.use('/admin', require('./utils/admin'));
 
 // Send all other requests to react app
 app.get('*', (req, res) => {
