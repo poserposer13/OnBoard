@@ -28,6 +28,7 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
+import Copyright from './components/Copyright';
 import { mainListItems, secondaryListItems } from './components/listItems';
 
 
@@ -55,18 +56,7 @@ function App() {
         // Do something with response error
         return Promise.reject(error);
     });
-    function Copyright() {
-        return (
-            <Typography variant="body2" color="textSecondary" align="center">
-                {'Copyright © '}
-                <Link color="inherit" href="https://material-ui.com/">
-                    OnBoard
-                </Link>{' '}
-                {new Date().getFullYear()}
-                {'.'}
-            </Typography>
-        );
-    }
+    
     const drawerWidth = 240;
 
     const useStyles = makeStyles((theme) => ({
