@@ -40,5 +40,11 @@ router.delete('/:id', isAuthenticated, function(req, res) {
         .catch(err => res.status(422).json(err));
 });
 
+router.patch('/:id', isAuthenticated, function(req, res) {
+    db.Task.findByIdAndUpdate(req.params.id, req.body)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+});
+
 
 module.exports = router;
