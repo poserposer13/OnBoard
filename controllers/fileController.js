@@ -26,7 +26,7 @@ module.exports = function (gfs, upload) {
     });
 
     // POST/upload route
-    router.post('/upload', upload.single('file'), (req, res) => {
+    router.post('/upload', upload.single('img'), (req, res) => {
         console.log(req);
         res.json({ file: req.file });
     });
@@ -64,7 +64,7 @@ module.exports = function (gfs, upload) {
 
     // @route GET /image/:filename
     // @desc Display Image
-    router.get('/file/:filename', (req, res) => {
+    router.get('/image/:filename', (req, res) => {
         gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
             // Check if file
             if (!file || file.length === 0) {

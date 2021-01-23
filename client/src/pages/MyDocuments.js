@@ -9,15 +9,19 @@ class MyDocuments extends React.Component {
 
       formData.append('img', file[0]);
 
-      fetch('/file', {
+      fetch('/api/file/upload', {
           method: 'POST',
           body: formData,
-      }).then(res => res.json())
+      })
+          .then((res) => res.json())
           .then((res) => {
               console.log(res);
               document
                   .getElementById('img')
-                  .setAttribute('src', `/file/${res.filename}`);
+                  .setAttribute(
+                      'src',
+                      `/api/file/image/${res.file.filename}`
+                  );
               console.log(file[0]);
           });
   };

@@ -40,52 +40,51 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // const conn = mongoose.createConnection('mongodb://localhost/project3');
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/project3', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-}).then(conn => {
-
-
+mongoose
+    .createConnection(process.env.MONGODB_URI || 'mongodb://localhost/project3', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+    })
+    .then((conn) => {
     // Init gfs
-    let gfs;
+        let gfs;
 
-    conn.once('open', () => {
         // Init stream
         gfs = Grid(conn.db, mongoose.mongo);
         gfs.collection('uploads');
         console.log('Connection Successful');
-    });
 
-    // Create Storage Engine
-    const storage = new GridFsStorage({
-        url: 'mongodb://localhost/project3',
-        file: (req, file) => {
-            return new Promise((resolve, reject) => {
-                crypto.randomBytes(16, (err, buf) => {
-                    if (err) {
-                        return reject(err);
-                    }
-                    const filename =
-        buf.toString('hex') + path.extname(file.originalname);
-                    const fileInfo = {
-                        filename: filename,
-                        bucketName: 'uploads',
-                    };
-                    resolve(fileInfo);
+        // Create Storage Engine
+        const storage = new GridFsStorage({
+            url: process.env.MONGODB_URI || 'mongodb://localhost/project3',
+            file: (req, file) => {
+                return new Promise((resolve, reject) => {
+                    crypto.randomBytes(16, (err, buf) => {
+                        if (err) {
+                            return reject(err);
+                        }
+                        const filename =
+              buf.toString('hex') + path.extname(file.originalname);
+                        const fileInfo = {
+                            filename: filename,
+                            bucketName: 'uploads',
+                        };
+                        resolve(fileInfo);
+                    });
                 });
-            });
-        },
+            },
+        });
+        console.log(storage);
+        const upload = multer({ storage });
+
+        // Requiring our routes
+        const routes = require('./controllers')(gfs, upload);
+
+        app.use(routes);
+
+        app.listen(PORT, function () {
+            console.log(`Server now on port ${PORT}!`);
+        });
     });
-    const upload = multer({ storage });
-
-    // Requiring our routes
-    const routes = require('./controllers')(gfs, upload);
-
-    app.use(routes);
-
-    app.listen(PORT, function () {
-        console.log(`Server now on port ${PORT}!`);
-    });
-});
