@@ -28,4 +28,4 @@ package-lock.json
 yarn.lock
 
 # ignoring the cache to be nicer
-.eslintcache
+.eslintcache*

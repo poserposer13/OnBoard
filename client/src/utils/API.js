@@ -16,8 +16,11 @@ const API = {
     // Saves a task to the database
     saveTask: function (taskData) {
         return axios.post('/api/tasks', taskData);
-    }
-    // changeCompletion: /api/task/ + _id
+    },
+    // Changes the task completion with the given id
+    changeCompletion: function (id, checkedStatus) {
+        return axios.patch('/api/tasks/' + id, {isComplete: checkedStatus});
+    }  
 };
 export default API;
 

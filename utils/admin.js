@@ -14,9 +14,22 @@ const adminBro = new AdminBro({
             options: {
                 properties: {
                     password: {
-                        isVisible: false,
+                        isVisible: true,
                     }
-                }
+                },
+                // actions: {
+                //     new: {
+                //         before: async (request) => {
+                //             if(request.payload.password) {
+                //                 request.payload = {
+                //                     ...request.payload,
+                //                     password: await bcrypt.hash(request.payload.password, 10),
+                //                     password: undefined,
+                //                 };
+                //             }
+                //         }
+                //     }
+                // }
             },
         },
         {
@@ -34,7 +47,7 @@ module.exports = adminRouter = AdminBroExpress.buildAuthenticatedRouter(adminBro
         const user = await User.findOne({ email });
         if (user) {
             const matched = bcrypt.compare(password, user.password);
-            if (matched && user.isAdmin === true) {
+            if (matched) {
                 return user;
             }
         }
@@ -43,3 +56,5 @@ module.exports = adminRouter = AdminBroExpress.buildAuthenticatedRouter(adminBro
     cookiePassword: 'some-secret-password-used-to-secure-cookie',
 });
 
+// condition to lock backend, do not inclued after if(matched ) until production
+// && user.isAdmin === true
