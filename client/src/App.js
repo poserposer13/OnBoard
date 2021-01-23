@@ -10,6 +10,7 @@ import MyDocuments from './pages/MyDocuments';
 import Policies from './pages/Policies';
 import Team from './pages/Team';
 import Calendar from './pages/Calendar';
+import Training from './pages/Training';
 
 
 function App() {
@@ -61,6 +62,9 @@ function App() {
                 </PrivateRoute>
                 <PrivateRoute exact path='/calendar'>
                     <Calendar />
+                </PrivateRoute>
+                <PrivateRoute exact path='/training'>
+                    <Training />
                 </PrivateRoute>
             </Switch>
         </Router>
