@@ -67,11 +67,11 @@ export const mainListItems = (
 export const secondaryListItems = (
     <div>
         <ListSubheader inset>Hello</ListSubheader>
-        <ListItem button>
+        <ListItemLink href='/login' button>
             <ListItemIcon>
                 <LockOpenIcon />
             </ListItemIcon>
             <ListItemText primary="Login" />
-        </ListItem>
+        </ListItemLink>
     </div>
 );

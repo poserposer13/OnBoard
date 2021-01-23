@@ -56,7 +56,7 @@ function App() {
         // Do something with response error
         return Promise.reject(error);
     });
-    
+
     const drawerWidth = 240;
 
     const useStyles = makeStyles((theme) => ({
@@ -163,15 +163,16 @@ function App() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+                    <Typography component="h1" variant="h5" color="inherit" noWrap className={classes.title}>
                         {isLoggedIn() ?
                             <>
-                                <li>Hello, {getProfile().email} </li>
-                                <li><Link onClick={() => logout()} to='/login'>Logout</Link></li>
+                                <h5>Hello, {getProfile().email} </h5>
+                                <h5><Link onClick={() => logout()} to='/login'>Logout</Link></h5>
+                                <Divider />
                             </>
                             :
                             <>
-                                <li><Link to="/login">Login</Link></li>
+                                <h5><Link to="/login">Login</Link></h5>
                             </>
                         }
                     </Typography>
@@ -193,7 +194,7 @@ function App() {
                     </IconButton>
                 </div>
                 <Divider />
-                <List>{['/login', '/home'].includes(window.location.pathname) ? secondaryListItems : mainListItems}</List>
+                <List>{['/login'].includes(window.location.pathname) ? secondaryListItems : mainListItems}</List>
 
             </Drawer>
             <main className={classes.content}>
