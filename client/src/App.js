@@ -108,7 +108,7 @@ function App() {
 
         },
         drawerPaperClose: {
-            overflowX: 'hidden',
+            // overflowX: 'hidden',
             transition: theme.transitions.create('width', {
                 easing: theme.transitions.easing.sharp,
                 duration: theme.transitions.duration.leavingScreen,
@@ -172,7 +172,7 @@ function App() {
                             </>
                             :
                             <>
-                                <h5><Link to="/login">Login</Link></h5>
+                                <h5>Hello, Please Log-In</h5>
                             </>
                         }
                     </Typography>
