@@ -18,6 +18,14 @@ const userSchema = new Schema(
             trim: true,
             required: 'Enter a password'
         },
+        firstName: {
+            type: String,
+            trim: true
+        },
+        lastName: {
+            type: String,
+            trim: true
+        },
         isAdmin: {
             type: Boolean,
             default: true,
