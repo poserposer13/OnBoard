@@ -19,12 +19,12 @@ function ListItemLink(props) {
 
 export const mainListItems = (
     <div>
-        <ListItem button>
+        <ListItemLink href='/home' button>
             <ListItemIcon>
                 <DashboardIcon />
             </ListItemIcon>
             <ListItemText primary="Dashboard" />
-        </ListItem>
+        </ListItemLink>
         <ListItemLink href='/tasks' button>
             <ListItemIcon>
                 <ListIcon />
@@ -66,24 +66,12 @@ export const mainListItems = (
 
 export const secondaryListItems = (
     <div>
-        <ListSubheader inset>Saved reports</ListSubheader>
+        <ListSubheader inset>Hello</ListSubheader>
         <ListItem button>
             <ListItemIcon>
                 <AssignmentIcon />
             </ListItemIcon>
-            <ListItemText primary="Current month" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Last quarter" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Year-end sale" />
+            <ListItemText primary="Login" />
         </ListItem>
     </div>
 );
