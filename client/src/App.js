@@ -158,7 +158,7 @@ function App() {
         setOpen(false);
     };
     const { getProfile, isLoggedIn } = useAuth();
-    console.log(window.location);
+
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -176,8 +176,8 @@ function App() {
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                         {isLoggedIn() ?
                             <>
-                                <li>Hello, {getProfile().email}</li>
-                                <li><Link onClick={() => logout()} to='/'>Logout</Link></li>
+                                <li>Hello, {getProfile().email} </li>
+                                <li><Link onClick={() => logout()} to='/login'>Logout</Link></li>
                             </>
                             :
                             <>
