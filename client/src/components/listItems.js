@@ -9,7 +9,7 @@ import DescriptionIcon from '@material-ui/icons/Description';
 import PeopleIcon from '@material-ui/icons/People';
 import PolicyIcon from '@material-ui/icons/Policy';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 
 
@@ -19,7 +19,7 @@ function ListItemLink(props) {
 
 export const mainListItems = (
     <div>
-        <ListItemLink href='/home' button>
+        <ListItemLink href='/' button>
             <ListItemIcon>
                 <DashboardIcon />
             </ListItemIcon>
@@ -69,7 +69,7 @@ export const secondaryListItems = (
         <ListSubheader inset>Hello</ListSubheader>
         <ListItem button>
             <ListItemIcon>
-                <AssignmentIcon />
+                <LockOpenIcon />
             </ListItemIcon>
             <ListItemText primary="Login" />
         </ListItem>

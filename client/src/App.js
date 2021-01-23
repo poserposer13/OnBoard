@@ -27,7 +27,7 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import LockIcon from '@material-ui/icons/Lock';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 import { mainListItems, secondaryListItems } from './components/listItems';
 
 
@@ -186,7 +186,7 @@ function App() {
                         }
                     </Typography>
                     <IconButton color="inherit" href='/login'>
-                        <LockIcon />
+                        <LockOpenIcon />
                     </IconButton>
                 </Toolbar>
             </AppBar>
