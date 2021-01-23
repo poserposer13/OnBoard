@@ -28,7 +28,7 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import LockIcon from '@material-ui/icons/Lock';
-import { mainListItems } from './components/listItems';
+import { mainListItems, secondaryListItems } from './components/listItems';
 
 
 function App() {
@@ -158,6 +158,7 @@ function App() {
         setOpen(false);
     };
     const { getProfile, isLoggedIn } = useAuth();
+    console.log(window.location);
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -202,7 +203,7 @@ function App() {
                     </IconButton>
                 </div>
                 <Divider />
-                <List>{mainListItems}</List>
+                <List>{['/login', '/home'].includes(window.location.pathname) ? secondaryListItems : mainListItems}</List>
 
             </Drawer>
             <main className={classes.content}>
