@@ -16,12 +16,12 @@ const PurpleCheckbox = withStyles({
 
 export default function CheckboxLabels(props) {
 
-    const {isChecked, onChange} = props;
+    const {isChecked, onChange, id} = props;
 
 
     return (
         <FormControlLabel
-            control={<PurpleCheckbox checked={isChecked} onChange={onChange} name="checkedG" />}
+            control={<PurpleCheckbox checked={isChecked} onChange={() => {onChange(id, isChecked);}} name="checkedG" />}
             label="Task Complete"
         />
     );

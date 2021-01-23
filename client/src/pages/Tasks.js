@@ -20,7 +20,11 @@ const Tasks = function () {
         console.log(data);
     }
 
-const toggleTask = (id) => {}
+    const toggleTask = async (id, checkedStatus) => {
+        const flippedCheckedStatus = !checkedStatus;
+        await API.changeCompletion(id, flippedCheckedStatus);
+        fetchTasks();
+    };
     
 
     return (
@@ -31,7 +35,7 @@ const toggleTask = (id) => {}
                     console.log(task.isComplete);
                     return (
                         <li key={task._id}>
-                            <strong>{task.title}</strong> {task.body} <sub>from: {task.user.email}</sub> <sub >Is complete: <ChangeCompletion onChange={()=> {}} isChecked={task.isComplete}/></sub>
+                            <strong>{task.title}</strong> {task.body} <sub>from: {task.user.email}</sub> <sub >Is complete: <ChangeCompletion onChange={toggleTask} id={task._id} isChecked={task.isComplete}/></sub>
                         </li>
                     );
                 })}
