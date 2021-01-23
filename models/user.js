@@ -1,32 +1,28 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const Schema = mongoose.Schema;
-const userSchema = new Schema(
-    {
-        createdAt: {
-            type: Date,
-            default: () => new Date()
-        },
-        email: {
-            type: String,
-            trim: true,
-            required: 'Enter an email',
-            index: { unique: true }
-        },
-        password: {
-            type: String,
-            trim: true,
-            required: 'Enter a password'
-        },
-        isAdmin: {
-            type: Boolean,
-            default: true,
-        },
-        tasks: [
-            { type: Schema.Types.ObjectId, ref: 'Task'}
-        ]
-    }
-);
+const userSchema = new Schema({
+    createdAt: {
+        type: Date,
+        default: () => new Date(),
+    },
+    email: {
+        type: String,
+        trim: true,
+        required: 'Enter an email',
+        index: { unique: true },
+    },
+    password: {
+        type: String,
+        trim: true,
+        required: 'Enter a password',
+    },
+    isAdmin: {
+        type: Boolean,
+        default: true,
+    },
+    tasks: [{ type: Schema.Types.ObjectId, ref: 'Task' }],
+});
 
 userSchema.pre('save', function (next) {
     const user = this;
@@ -35,12 +31,7 @@ userSchema.pre('save', function (next) {
         return next();
     }
 
-
-    user.password = bcrypt.hashSync(
-        user.password,
-        bcrypt.genSaltSync(10),
-        null
-    );
+    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
 
     next();
 });

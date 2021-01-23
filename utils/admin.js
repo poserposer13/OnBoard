@@ -15,7 +15,7 @@ const adminBro = new AdminBro({
                 properties: {
                     password: {
                         isVisible: true,
-                    }
+                    },
                 },
                 // actions: {
                 //     new: {
@@ -36,25 +36,27 @@ const adminBro = new AdminBro({
             resource: Task,
             options: {
                 // for later
-            }
-        }
+            },
+        },
     ],
 });
 
-
-module.exports = adminRouter = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
-    authenticate: async (email, password) => {
-        const user = await User.findOne({ email });
-        if (user) {
-            const matched = bcrypt.compare(password, user.password);
-            if (matched) {
-                return user;
+module.exports = adminRouter = AdminBroExpress.buildAuthenticatedRouter(
+    adminBro,
+    {
+        authenticate: async (email, password) => {
+            const user = await User.findOne({ email });
+            if (user) {
+                const matched = bcrypt.compare(password, user.password);
+                if (matched) {
+                    return user;
+                }
             }
-        }
-        return false;
-    },
-    cookiePassword: 'some-secret-password-used-to-secure-cookie',
-});
+            return false;
+        },
+        cookiePassword: 'some-secret-password-used-to-secure-cookie',
+    }
+);
 
 // condition to lock backend, do not inclued after if(matched ) until production
 // && user.isAdmin === true

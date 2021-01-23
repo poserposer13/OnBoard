@@ -8,7 +8,7 @@ router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
         // Find user
-        const user = await db.User.findOne({ email:email });
+        const user = await db.User.findOne({ email: email });
         if (!user) {
             res.status(400).send('User not found.');
         }
@@ -22,15 +22,16 @@ router.post('/login', async (req, res) => {
             process.env.SECRET,
             {
                 expiresIn: '24h',
-                algorithm: 'HS256'
+                algorithm: 'HS256',
             }
         );
         // send token and user data back. Selecting only certain parts of the user
         res.json({
-            token, user: {
+            token,
+            user: {
                 _id: user._id,
-                email: user.email
-            }
+                email: user.email,
+            },
         });
     } catch (err) {
         console.error(err);
@@ -46,7 +47,7 @@ router.post('/signup', async (req, res) => {
         // Try to create a user
         const user = await db.User.create({
             email,
-            password
+            password,
         });
         if (!user) {
             res.status(400).send('Cannot create user.');
@@ -57,15 +58,16 @@ router.post('/signup', async (req, res) => {
             process.env.SECRET,
             {
                 expiresIn: '24h',
-                algorithm: 'HS256'
+                algorithm: 'HS256',
             }
         );
         // send token and user data back. Selecting only certain parts of the user
         res.json({
-            token, user: {
+            token,
+            user: {
                 _id: user._id,
-                email: user.email
-            }
+                email: user.email,
+            },
         });
     } catch (err) {
         console.error(err);
