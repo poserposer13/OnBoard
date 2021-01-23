@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import API from '../utils/API';
-
+import ChangeCompletion from '../components/ChangeCompletion';
 
 const Tasks = function () {
     const [tasks, setTasks] = useState([]);
@@ -14,14 +14,19 @@ const Tasks = function () {
         fetchTasks();
     }, [refresh]);
 
-    // function handleCompletion
-    // onClick={handleCompletion}
-
     async function fetchTasks() {
         const { data } = await API.getTasks();
         setTasks(data);
         console.log(data);
     }
+
+    const toggleTask = async (id, checkedStatus) => {
+        const flippedCheckedStatus = !checkedStatus;
+        await API.changeCompletion(id, flippedCheckedStatus);
+        fetchTasks();
+    };
+    
+
     return (
         <div>
             <h2>Tasks</h2>
@@ -30,12 +35,11 @@ const Tasks = function () {
                     console.log(task.isComplete);
                     return (
                         <li key={task._id}>
-                            <strong>{task.title}</strong> {task.body} <sub>from: {task.user.email}</sub> <sub >Is complete: {task.isComplete ? 'true':'false'}</sub>
+                            <strong>{task.title}</strong> {task.body} <sub>from: {task.user.email}</sub> <sub >Is complete: <ChangeCompletion onChange={toggleTask} id={task._id} isChecked={task.isComplete}/></sub>
                         </li>
                     );
                 })}
             </ol>
-
         </div>
     );
 };
