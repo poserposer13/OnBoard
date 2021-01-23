@@ -4,7 +4,7 @@ import React from 'react';
 class MyDocuments extends React.Component {
   Post = (e) => {
       e.preventDefault();
-      const file = document.getElementById('inputGroupFile01').files;
+      const file = document.getElementById('file').files;
       const formData = new FormData();
 
       formData.append('img', file[0]);
@@ -35,19 +35,19 @@ class MyDocuments extends React.Component {
                       </p>
                       <hr className="my-4" />
                   </div>
-                  <div className="input-group mb-3">
-                      <div className="custom-file">
+                  <form action="/upload" method="POST" encType="multipart/form-data">
+                      <div className="custom-file mb-3">
                           <input
                               type="file"
+                              name="file"
                               className="custom-file-input"
-                              id="inputGroupFile01"
-                              aria-describedby="inputGroupFileAddon01"
+                              id="file"
                           />
-                          <label className="custom-file-label" htmlFor="inputGroupFile01">
+                          <label className="custom-file-label" htmlFor="file">
                 Choose file
                           </label>
                       </div>
-                  </div>
+                  </form>
                   <button type="button" className="btn btn-primary" onClick={this.Post}>
             Upload
                   </button>
