@@ -20,7 +20,7 @@ const userSchema = new Schema(
         },
         isAdmin: {
             type: Boolean,
-            default: false,
+            default: true,
         },
         tasks: [
             { type: Schema.Types.ObjectId, ref: 'Task'}
