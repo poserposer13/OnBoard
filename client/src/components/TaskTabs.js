@@ -55,7 +55,7 @@ export default function FullWidthTabs(props) {
     const classes = useStyles();
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
-    
+
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -86,29 +86,23 @@ export default function FullWidthTabs(props) {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0} dir={theme.direction}>
-                    <ol> {props.tasks.map(task => {
-                        if (!task.isComplete) {
-
-                            return (
-                                <li key={task._id}>
-                                    <strong>{task.title}</strong> {task.body} <ChangeCompletion onChange={props.toggleTask} id={task._id} isChecked={task.isComplete} />
-                                    <sub>Assigned By: {task.user.email}</sub>
-                                </li>
-                            );
-                        }
+                    <ol> {props.tasks.filter(task => !task.isComplete).map(task => {
+                        return (
+                            <li key={task._id}>
+                                <strong>{task.title}</strong> {task.body} <ChangeCompletion onChange={props.toggleTask} id={task._id} isChecked={task.isComplete} />
+                                <sub>Assigned By: {task.user.email}</sub>
+                            </li>
+                        );
                     })} </ol>
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
-                    <ol> {props.tasks.map(task => {
-                        if (task.isComplete) {
-
-                            return (
-                                <li key={task._id}>
-                                    <strong>{task.title}</strong> {task.body} <ChangeCompletion onChange={props.toggleTask} id={task._id} isChecked={task.isComplete} />
-                                    <sub>Assigned By: {task.user.email}</sub>
-                                </li>
-                            );
-                        }
+                    <ol>{props.tasks.filter(task => task.isComplete).map(task => {
+                        return (
+                            <li key={task._id}>
+                                <strong>{task.title}</strong> {task.body} <ChangeCompletion onChange={props.toggleTask} id={task._id} isChecked={task.isComplete} />
+                                <sub>Assigned By: {task.user.email}</sub>
+                            </li>
+                        );
                     })} </ol>
                 </TabPanel>
             </SwipeableViews>
