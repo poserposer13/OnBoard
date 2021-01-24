@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import API from '../utils/API';
-import ChangeCompletion from '../components/ChangeCompletion';
+import TaskTabs from '../components/TaskTabs';
 
 const Tasks = function () {
     const [tasks, setTasks] = useState([]);
     // so we can refresh the Page *after* we get a response back from the server on our new task!
     const [refresh] = useState(0);
+    const [selected, setSelected] = useState('In-Progress');
 
 
     // Notice deps has refresh in there - this way when it increments from someone submitting
@@ -25,22 +26,13 @@ const Tasks = function () {
         await API.changeCompletion(id, flippedCheckedStatus);
         fetchTasks();
     };
-    
+
 
     return (
         <div>
             <h2>Tasks</h2>
-            <ol>
-                {tasks.map(task => {
-                    console.log(task.isComplete);
-                    return (
-                        <li key={task._id}>
-                            <strong>{task.title}</strong> {task.body} <sub>from: {task.user.email}</sub> <sub >Is complete: <ChangeCompletion onChange={toggleTask} id={task._id} isChecked={task.isComplete}/></sub>
-                        </li>
-                    );
-                })}
-            </ol>
-        </div>
+            <TaskTabs selected={selected} setSelected={setSelected} tasks={tasks} toggleTask={toggleTask} />
+        </div >
     );
 };
 
