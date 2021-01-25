@@ -1,19 +1,16 @@
 require('dotenv').config();
-
 // Configuration check.
 // Disable this at your own risk
 require('./utils/verifyConfiguration')();
 // Requiring necessary npm packages
 const express = require('express');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 const path = require('path');
 const crypto = require('crypto');
 const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
-const methodOverride = require('method-override');
-// Requiring our routes
-const routes = require('./controllers');
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3001;
 const mongoose = require('mongoose');
@@ -42,78 +39,53 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
 
-// Add all our backend routes
-app.use(routes);
+// const conn = mongoose.createConnection('mongodb://localhost/project3');
+mongoose
+    .createConnection(process.env.MONGODB_URI || 'mongodb://localhost/project3', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+    })
+    .then((conn) => {
+    // Init gfs
+        let gfs;
 
-const conn = mongoose.createConnection('mongodb://localhost/project3');
+        // Init stream
+        gfs = Grid(conn.db, mongoose.mongo);
+        gfs.collection('uploads');
+        console.log('Connection Successful');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/project3', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-});
-
-// Init gfs
-let gfs;
-
-conn.once('open', () => {
-    // Init stream
-    gfs = Grid(conn.db, mongoose.mongo);
-    gfs.collection('uploads');
-    console.log('Connection Successful');
-});
-
-// Create Storage Engine
-const storage = new GridFsStorage({
-    url: 'mongodb://localhost/project3',
-    file: (req, file) => {
-        return new Promise((resolve, reject) => {
-            crypto.randomBytes(16, (err, buf) => {
-                if (err) {
-                    return reject(err);
-                }
-                const filename = buf.toString('hex') + path.extname(file.originalname);
-                const fileInfo = {
-                    filename: filename,
-                    bucketName: 'uploads',
-                };
-                resolve(fileInfo);
-            });
+        // Create Storage Engine
+        const storage = new GridFsStorage({
+            url: process.env.MONGODB_URI || 'mongodb://localhost/project3',
+            file: (req, file) => {
+                return new Promise((resolve, reject) => {
+                    crypto.randomBytes(16, (err, buf) => {
+                        if (err) {
+                            return reject(err);
+                        }
+                        const filename =
+              buf.toString('hex') + path.extname(file.originalname);
+                        const fileInfo = {
+                            filename: filename,
+                            bucketName: 'uploads',
+                        };
+                        resolve(fileInfo);
+                    });
+                });
+            },
         });
-    },
-});
-const upload = multer({ storage });
+        console.log(storage);
+        const upload = multer({ storage });
 
-// POST/upload route
-// 'file' is the name of the input form for the front-end where user uploads files
-app.post('/file', upload.single('img'), (req, res) => {
-    console.log(req);
-    res.status(201).json(req.file);
-});
+        // Requiring our routes
+        const routes = require('./controllers')(gfs, upload);
 
-app.get('/file/:filename', (req, res) => {
-    gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
-    // Check if file
-        if (!file || file.length === 0) {
-            return res.status(404).json({
-                err: 'No file exists',
-            });
-        }
+        app.use(routes);
 
-        // Check if image
-        if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
-            // Read output to browser
-            const readstream = gfs.createReadStream(file.filename);
-            readstream.pipe(res);
-        } else {
-            res.status(404).json({
-                err: 'Not an image',
-            });
-        }
+        app.listen(PORT, function () {
+            console.log(`Server now on port ${PORT}!`);
+        });
     });
-});
-
-app.listen(PORT, function () {
-    console.log(`Server now on port ${PORT}!`);
 });
