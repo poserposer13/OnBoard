@@ -62,7 +62,7 @@ function App() {
             display: 'flex',
         },
         toolbar: {
-            paddingRight: 24, // keep right padding when drawer closed
+            paddingRight: 24,
         },
         toolbarIcon: {
             display: 'flex',
@@ -108,7 +108,7 @@ function App() {
             background: 'silver',
         },
         drawerPaperClose: {
-            // overflowX: 'hidden',
+            overflowX: 'hidden',
             transition: theme.transitions.create('width', {
                 easing: theme.transitions.easing.sharp,
                 duration: theme.transitions.duration.leavingScreen,
@@ -123,7 +123,6 @@ function App() {
             flexGrow: 1,
             height: '100vh',
             overflow: 'auto',
-            background: 'grey'
         },
         container: {
             paddingTop: theme.spacing(4),
