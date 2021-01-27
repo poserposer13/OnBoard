@@ -54,18 +54,10 @@ class MyDocuments extends React.Component {
                           </label>
                       </div>
                   </form>
-                  <button type="button" className="btn btn-primary" onClick={this.Post}>
+                  <button type="button" className="btn btn-primary btn-block" onClick={this.Post}>
             Upload
                   </button>
                   <MyDocs />
-                  {/* <Card style={{ width: '18rem', display: 'block' }}>
-                      <Card.Img variant="top" id="img" />
-                      <Card.Body>
-                          <form method='DELETE'>
-                              <Button variant='danger'>Delete</Button>
-                          </form>
-                      </Card.Body>
-                  </Card> */}
               </div>
           </div>
       );

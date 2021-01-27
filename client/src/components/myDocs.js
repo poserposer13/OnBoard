@@ -22,10 +22,10 @@ export default function MyDocs() {
     }
 
     return(
-        <>
+        <div className='container' style={{ display: 'flex', justifyContent: 'space-between' }}>
             {images.map(image => {
                 return(
-                    <Card style={{ width: '18rem', display: 'block' }}>
+                    <Card style={{ width: '18rem', margin: '0.5rem' }}>
                         <Card.Img src={`/api/file/image/${image.filename}`} variant="top" id="img" />
                         <Card.Body>
                             <form method='DELETE'>
@@ -37,6 +37,6 @@ export default function MyDocs() {
                     </Card>
                 );}
             )}
-        </>
+        </div>
     );
 }
