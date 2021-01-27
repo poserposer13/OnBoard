@@ -8,7 +8,6 @@ import ListIcon from '@material-ui/icons/List';
 import DescriptionIcon from '@material-ui/icons/Description';
 import PeopleIcon from '@material-ui/icons/People';
 import PolicyIcon from '@material-ui/icons/Policy';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 
@@ -48,12 +47,6 @@ export const mainListItems = (
                 <PolicyIcon />
             </ListItemIcon>
             <ListItemText primary="Policies" />
-        </ListItemLink>
-        <ListItemLink href='/calender' button>
-            <ListItemIcon>
-                <CalendarTodayIcon />
-            </ListItemIcon>
-            <ListItemText primary="Calender" />
         </ListItemLink>
         <ListItemLink href='/training' button>
             <ListItemIcon>
