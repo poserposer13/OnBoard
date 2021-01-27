@@ -9,7 +9,6 @@ import Tasks from './pages/Tasks';
 import MyDocuments from './pages/MyDocuments';
 import Policies from './pages/Policies';
 import Team from './pages/Team';
-import Calendar from './pages/Calendar';
 import Training from './pages/Training';
 import React from 'react';
 import clsx from 'clsx';
@@ -221,9 +220,6 @@ function App() {
                                 </PrivateRoute>
                                 <PrivateRoute exact path='/team'>
                                     <Team />
-                                </PrivateRoute>
-                                <PrivateRoute exact path='/calendar'>
-                                    <Calendar />
                                 </PrivateRoute>
                                 <PrivateRoute exact path='/training'>
                                     <Training />

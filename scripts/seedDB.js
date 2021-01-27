@@ -31,13 +31,6 @@ let taskSeed = [
     },
     {
 
-        type: 'calendar',
-        title: 'Set your out of office hours.',
-
-
-    },
-    {
-
         type: 'team',
         title: 'Get acquainted with your team.',
 
