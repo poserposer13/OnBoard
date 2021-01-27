@@ -39,20 +39,20 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
 
-// const conn = mongoose.createConnection('mongodb://localhost/project3');
+
 mongoose
-    .createConnection(process.env.MONGODB_URI || 'mongodb://localhost/project3', {
+    .connect(process.env.MONGODB_URI || 'mongodb://localhost/project3', {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,
         useFindAndModify: false,
     })
     .then((conn) => {
-    // Init gfs
+        // Init gfs
         let gfs;
 
         // Init stream
-        gfs = Grid(conn.db, mongoose.mongo);
+        gfs = Grid(conn.connections[0].db, mongoose.mongo);
         gfs.collection('uploads');
         console.log('Connection Successful');
 
@@ -66,7 +66,7 @@ mongoose
                             return reject(err);
                         }
                         const filename =
-              buf.toString('hex') + path.extname(file.originalname);
+                            buf.toString('hex') + path.extname(file.originalname);
                         const fileInfo = {
                             filename: filename,
                             bucketName: 'uploads',
@@ -76,7 +76,7 @@ mongoose
                 });
             },
         });
-        console.log(storage);
+
         const upload = multer({ storage });
 
         // Requiring our routes
