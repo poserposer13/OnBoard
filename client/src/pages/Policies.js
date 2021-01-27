@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import nda from '.././assets/nda.png';
 import nonCompete from '.././assets/nonCompete.png';
 import empHandbook from '.././assets/empHandbook.png';
+import {ReactComponent as PolicyLogo} from '../undraw/policy.svg';
 
 function Policies() {
 
@@ -50,7 +51,7 @@ function Policies() {
     return (
         <div>
             <h2>
-                Policies
+                Policies <PolicyLogo style={{ height: 153, width: 136 }}/>
             </h2>
             <p>
                 After reviewing a policy, click the associated "acknowledge" button to accept, and confirm when prompted.
