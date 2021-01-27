@@ -36,7 +36,7 @@ class MyDocuments extends React.Component {
               <h2>Document Upload</h2>
               <div className="container">
                   <div className="jumbotron">
-                      <h3 className="display-4">Please upload necessary documents here one at a time</h3>
+                      <h3 className="display-4">Please upload necessary documents here</h3>
                       <p className="lead">
                         Note: files uploaded must be .jpeg or .png files
                       </p>
