@@ -1,5 +1,6 @@
 const router = require('express').Router();
-// const db = require('../models');
+const isAuthenticated = require('../utils/middleware').isAuthenticated;
+const db = require('../models');
 
 module.exports = function (gfs, upload) {
     // @route GET /
@@ -26,9 +27,21 @@ module.exports = function (gfs, upload) {
     });
 
     // POST/upload route
-    router.post('/upload', upload.single('img'), (req, res) => {
-
+    router.post('/upload', [upload.single('img'), isAuthenticated], async (req, res) => {
+        console.log(req.user);
+        const result = await db.FileMetaData.create({
+            user: req.user._id,
+            filename: req.file.filename
+        });
+        console.log(result);
         res.json({ file: req.file });
+    });
+
+    router.get('/userfiles', isAuthenticated, async (req, res) => {
+        const result = await db.FileMetaData.find({
+            user: req.user._id
+        });
+        res.json(result);
     });
 
     // @route GET /files
@@ -89,13 +102,20 @@ module.exports = function (gfs, upload) {
         });
     });
 
-    router.delete('/mydocuments/file/:filename', (req, res) => {
-        gfs.remove({ id: req.params.id, root: 'uploads' }, (err) => {
+    router.delete('/:filename', isAuthenticated, (req, res) => {
+        console.log(req);
+        gfs.remove({ filename: req.params.filename, root: 'uploads' }, (err) => {
             if (err) {
                 return res.status(404).json({ err: err });
             }
-
-            res.redirect('/mydocuments');
+            db.FileMetaData.deleteOne({
+                filename: req.params.filename,
+                user: req.user._id
+            }).then(() => {
+                res.json({
+                    message: 'bye'
+                });
+            });
         });
     });
 

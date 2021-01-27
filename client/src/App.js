@@ -221,7 +221,7 @@ function App() {
                                     <Tasks />
                                 </PrivateRoute>
                                 <PrivateRoute exact path='/mydocuments'>
-                                    <MyDocuments />
+                                    <MyDocuments token={getToken()} />
                                 </PrivateRoute>
                                 <PrivateRoute exact path='/policies'>
                                     <Policies />
