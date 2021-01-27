@@ -158,7 +158,7 @@ function App() {
         setOpen(false);
     };
     const { getProfile, isLoggedIn } = useAuth();
-    console.log(window.location);
+
     return (
         <div className={classes.root}>
             <CssBaseline />

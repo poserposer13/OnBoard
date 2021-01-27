@@ -8,7 +8,8 @@ router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
         // Find user
-        const user = await db.User.findOne({ email:email });
+        const user = await db.User.findOne({ email: email });
+
         if (!user) {
             res.status(400).send('User not found.');
         }
