@@ -1,5 +1,6 @@
-// import { Form } from 'react-bootstrap';
+
 import React from 'react';
+import MyDocs from '../components/myDocs';
 
 class MyDocuments extends React.Component {
   Post = (e) => {
@@ -12,6 +13,9 @@ class MyDocuments extends React.Component {
       fetch('/api/file/upload', {
           method: 'POST',
           body: formData,
+          headers: {
+              Authorization: `Bearer ${this.props.token}`
+          }
       })
           .then((res) => res.json())
           .then((res) => {
@@ -32,12 +36,10 @@ class MyDocuments extends React.Component {
               <h2>Document Upload</h2>
               <div className="container">
                   <div className="jumbotron">
-                      <h1 className="display-4">Image Uplaoder</h1>
+                      <h3 className="display-4">Please upload necessary documents here one at a time</h3>
                       <p className="lead">
-              This is a simple application to upload and retrieve images from a
-              database
+                        Note: files uploaded must be .jpeg or .png files
                       </p>
-                      <hr className="my-4" />
                   </div>
                   <form action="/upload" method="POST" encType="multipart/form-data">
                       <div className="custom-file mb-3">
@@ -55,13 +57,15 @@ class MyDocuments extends React.Component {
                   <button type="button" className="btn btn-primary" onClick={this.Post}>
             Upload
                   </button>
-                  <img
-                      id="img"
-                      alt="upload"
-                      style={{
-                          display: 'block',
-                      }}
-                  ></img>
+                  <MyDocs />
+                  {/* <Card style={{ width: '18rem', display: 'block' }}>
+                      <Card.Img variant="top" id="img" />
+                      <Card.Body>
+                          <form method='DELETE'>
+                              <Button variant='danger'>Delete</Button>
+                          </form>
+                      </Card.Body>
+                  </Card> */}
               </div>
           </div>
       );
