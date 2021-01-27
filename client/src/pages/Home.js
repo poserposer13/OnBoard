@@ -27,7 +27,7 @@ class Home extends React.Component {
             <div>
                 <h2>Home Page</h2>
                 <p>Welcome Home</p>
-                <h1>Here is where you can complete everything you need to do as a employee for us, Yeet Inc.</h1>
+                <h1>Here is where you can complete everything you need as an employee for us at Yeet Inc.</h1>
             </div>
         );
     }
