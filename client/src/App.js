@@ -1,4 +1,3 @@
-// import Navbar from './components/Navbar';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
@@ -16,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
@@ -23,10 +23,9 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import LockOpenIcon from '@material-ui/icons/LockOpen';
+import LockIcon from '@material-ui/icons/Lock';
 import Copyright from './components/Copyright';
 import { mainListItems, secondaryListItems } from './components/listItems';
 
@@ -89,12 +88,14 @@ function App() {
         },
         menuButton: {
             marginRight: 36,
+            color: 'black'
         },
         menuButtonHidden: {
             display: 'none',
         },
         title: {
             flexGrow: 1,
+            color: 'black'
         },
         drawerPaper: {
             position: 'relative',
@@ -165,19 +166,24 @@ function App() {
                     <Typography component="h1" variant="h5" color="inherit" noWrap className={classes.title}>
                         {isLoggedIn() ?
                             <>
-                                <h5>Hello, {getProfile().email} </h5>
-                                <h5><Link onClick={() => logout()} to='/login'>Logout</Link></h5>
-                                <Divider />
+                                <h1>Hello, {getProfile().email} </h1>
                             </>
                             :
                             <>
-                                <h5>Hello, Please Log-In</h5>
+                                <h1>Hello, Please Log-In</h1>
                             </>
                         }
                     </Typography>
-                    <IconButton color="inherit" href='/login'>
-                        <LockOpenIcon />
-                    </IconButton>
+                    <Typography>
+                        {isLoggedIn() ?
+                            <>
+                                <Button startIcon={<LockIcon />} variant='outlined' size='large' onClick={() => logout()} to='/login'>Logout</Button>
+                            </>
+                            :
+                            <>
+                            </>
+                        }
+                    </Typography>
                 </Toolbar>
             </AppBar>
             <Drawer
