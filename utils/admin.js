@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 
 const User = require('../models/user');
 const Task = require('../models/task');
+const FileMetaData = require('../models/fileMetaData');
 AdminBro.registerAdapter(AdminBroMongoose);
 const adminBro = new AdminBro({
     rootPath: '/admin',
@@ -21,6 +22,12 @@ const adminBro = new AdminBro({
         },
         {
             resource: Task,
+            options: {
+                // for later
+            }
+        },
+        {
+            resource: FileMetaData,
             options: {
                 // for later
             }
