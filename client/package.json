@@ -14,6 +14,7 @@
         "react": "^17.0.1",
         "react-bootstrap": "^1.4.3",
         "react-dom": "^17.0.1",
+        "react-icons": "^4.1.0",
         "react-player": "^2.8.1",
         "react-router-dom": "^5.2.0",
         "react-scripts": "4.0.1",
@@ -22,7 +23,7 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build",
+        "build": "react-undraw-cli && react-scripts build",
         "test": "npm run lint",
         "lint": "eslint src",
         "fix": "eslint --fix src"
