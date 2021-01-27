@@ -194,6 +194,7 @@ function App() {
                     </IconButton>
                 </div>
                 <Divider />
+                
                 <List>{['/login'].includes(window.location.pathname) ? secondaryListItems : mainListItems}</List>
 
             </Drawer>
@@ -203,12 +204,12 @@ function App() {
                     <Box pt={4}>
                         <Router>
                             <Switch>
-                                <Route exact path='/'>
-                                    <Home />
-                                </Route>
                                 <Route path='/login'>
                                     <Login />
                                 </Route>
+                                <PrivateRoute exact path='/'>
+                                    <Home />
+                                </PrivateRoute>
                                 <PrivateRoute exact path='/tasks'>
                                     <Tasks />
                                 </PrivateRoute>
