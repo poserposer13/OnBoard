@@ -23,7 +23,7 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-undraw-cli && react-scripts build",
+        "build": "react-scripts build",
         "test": "npm run lint",
         "lint": "eslint src",
         "fix": "eslint --fix src"
