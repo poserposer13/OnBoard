@@ -13,7 +13,7 @@ module.exports = function (gfs, upload) {
                 files.map((file) => {
                     if (
                         file.contentType === 'image/jpeg' ||
-            file.contentType === 'image/png'
+                        file.contentType === 'image/png'
                     ) {
                         file.isImage = true;
                     } else {
@@ -27,7 +27,7 @@ module.exports = function (gfs, upload) {
 
     // POST/upload route
     router.post('/upload', upload.single('img'), (req, res) => {
-        console.log(req);
+
         res.json({ file: req.file });
     });
 
@@ -76,7 +76,7 @@ module.exports = function (gfs, upload) {
             // Check if image
             if (
                 file.contentType === 'image/jpeg' ||
-        file.contentType === 'image/png'
+                file.contentType === 'image/png'
             ) {
                 // Read output to browser
                 const readstream = gfs.createReadStream(file.filename);
