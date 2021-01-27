@@ -105,7 +105,7 @@ function App() {
                 easing: theme.transitions.easing.sharp,
                 duration: theme.transitions.duration.enteringScreen,
             }),
-
+            background: 'grey',
         },
         drawerPaperClose: {
             // overflowX: 'hidden',
@@ -123,6 +123,7 @@ function App() {
             flexGrow: 1,
             height: '100vh',
             overflow: 'auto',
+            background: 'grey'
         },
         container: {
             paddingTop: theme.spacing(4),
