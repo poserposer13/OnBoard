@@ -2,8 +2,15 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 
-export default function MyDocs() {
-    const [images, setImages] = useState([]);
+export default function MyDocs({ parentImages }) {
+    const [images, setImages] = useState(parentImages);
+    const [previousImages, setPreviousImages] = useState();
+
+
+    if (parentImages !== previousImages) {
+        setImages(parentImages);
+        setPreviousImages(parentImages);
+    }
 
     useEffect(() => {
         getFiles();
@@ -14,17 +21,17 @@ export default function MyDocs() {
             getFiles();
         });
     }
-    
+
     function getFiles() {
-        axios.get('/api/file/userfiles').then(({data}) => {
+        axios.get('/api/file/userfiles').then(({ data }) => {
             setImages(data);
         });
     }
 
-    return(
+    return (
         <div className='container' style={{ display: 'flex', justifyContent: 'space-between' }}>
             {images.map(image => {
-                return(
+                return (
                     <Card style={{ width: '18rem', margin: '0.5rem' }}>
                         <Card.Img src={`/api/file/image/${image.filename}`} variant="top" id="img" />
                         <Card.Body>
@@ -35,7 +42,8 @@ export default function MyDocs() {
                             </form>
                         </Card.Body>
                     </Card>
-                );}
+                );
+            }
             )}
         </div>
     );
