@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import BgCircles from '../components/ParticleBg';
 
 const useStyles = makeStyles({
     root: {
@@ -35,7 +36,7 @@ const Login = () => {
     const location = useLocation();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-   
+
     // This is the key part to our redirector. We can pull the prior location out here, if it exists
     const { from } = location.state || { from: { pathname: '/' } };
 
@@ -50,10 +51,10 @@ const Login = () => {
         return <Redirect to={location.state || '/'} />;
     }
 
-
     return (
         <div>
             <Container maxWidth="sm">
+                <BgCircles />
                 <Card className={classes.root}>
                     <CardContent>
                         <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -98,8 +99,9 @@ const Login = () => {
                 </Card>
             </Container>
             
-
+            
         </div >
+        
     );
 };
 
