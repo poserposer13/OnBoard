@@ -55,7 +55,7 @@ function Header() {
                     <Typography component="h1" variant="h5" color="inherit" noWrap className={classes.title}>
                         {isLoggedIn() ?
                             <>
-                                <h1>Hello, {getProfile().email}!</h1>
+                                <h1>Hello, {getProfile().firstName} {getProfile().lastName}!</h1>
                             </>
                             :
                             <>
