@@ -16,7 +16,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
-import Copyright from './components/Copyright';
 
 
 function App() {
@@ -56,12 +55,12 @@ function App() {
             overflow: 'auto',
         },
         container: {
-            paddingTop: theme.spacing(4),
+            paddingTop: 50,
             paddingBottom: theme.spacing(4),
         },
     }));
     const classes = useStyles();
-    
+
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -70,6 +69,7 @@ function App() {
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
+
                     <Box pt={4}>
                         <Router>
                             <Switch>
@@ -96,8 +96,8 @@ function App() {
                                 </PrivateRoute>
                             </Switch>
                         </Router>
-                        <Copyright />
                     </Box>
+                    
                 </Container>
             </main>
         </div>
