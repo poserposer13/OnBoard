@@ -7,9 +7,10 @@ import LockIcon from '@material-ui/icons/Lock';
 import useAuth from '../hooks/auth';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
+import { ReactComponent as OnboardLogo } from '../undraw/onboard-logo.svg';
 
 
-function Header(){
+function Header() {
     const drawerWidth = 240;
     const useStyles = makeStyles((theme) => ({
         toolbar: {
@@ -49,11 +50,12 @@ function Header(){
     return (
         <>
             <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
-                <Toolbar className={classes.toolbar}> 
+                <Toolbar className={classes.toolbar}>
+                    <OnboardLogo style={{ height: 133, width: 116 }} />
                     <Typography component="h1" variant="h5" color="inherit" noWrap className={classes.title}>
                         {isLoggedIn() ?
                             <>
-                                <h1>Hello, {getProfile().email} </h1>
+                                <h1>Hello, {getProfile().email}!</h1>
                             </>
                             :
                             <>
