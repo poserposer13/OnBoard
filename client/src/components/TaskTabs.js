@@ -90,7 +90,7 @@ export default function FullWidthTabs(props) {
                         return (
                             <li key={task._id}>
                                 <strong>{task.title}</strong> {task.body} <ChangeCompletion onChange={props.toggleTask} id={task._id} isChecked={task.isComplete} />
-                                <sub>Assigned By: {task.user.email}</sub>
+                                <sub>Assigned By: {task.user.firstName} {task.user.lastName}</sub>
                             </li>
                         );
                     })} </ol>
@@ -100,7 +100,7 @@ export default function FullWidthTabs(props) {
                         return (
                             <li key={task._id}>
                                 <strong>{task.title}</strong> {task.body} <ChangeCompletion onChange={props.toggleTask} id={task._id} isChecked={task.isComplete} />
-                                <sub>Assigned By: {task.user.email}</sub>
+                                <sub>Assigned By: {task.user.firstName} {task.user.lastName}</sub>
                             </li>
                         );
                     })} </ol>
