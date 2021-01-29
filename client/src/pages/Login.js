@@ -9,13 +9,14 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import BgCircles from '../components/ParticleBg';
+import TextField from '@material-ui/core/TextField';
 import { ReactComponent as LoginLogo } from '../undraw/login.svg';
 import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
-        marginTop: 150
+        marginTop: 150,
     },
     bullet: {
         display: 'inline-block',
@@ -31,7 +32,7 @@ const useStyles = makeStyles({
     loginLogo: {
         height: 193,
         width: 176,
-    }
+    },
 });
 
 const Login = () => {
@@ -47,9 +48,9 @@ const Login = () => {
     // This is the key part to our redirector. We can pull the prior location out here, if it exists
     const { from } = location.state || { from: { pathname: '/' } };
 
-    const handleSubmit = event => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        login(email, password).then(res => {
+        login(email, password).then((res) => {
             history.replace(from);
         });
     };
@@ -64,68 +65,93 @@ const Login = () => {
                 <BgCircles />
                 <Card className={classes.root}>
                     <CardContent>
-                        <Typography className={classes.title} color="textSecondary" gutterBottom>
-                            <Box display='flex' justifyContent='center'>
-                                <Typography variant='h2'>
-                                    Welcome to OnBoard!
-                                </Typography>
+                        <Typography
+                            className={classes.title}
+                            color="textSecondary"
+                            gutterBottom
+                        >
+                            <Box display="flex" justifyContent="center">
+                                <Typography variant="h2">Welcome to OnBoard!</Typography>
                             </Box>
-                            <Box display='flex' justifyContent='center'>
+                            <Box display="flex" justifyContent="center">
                                 <LoginLogo className={classes.loginLogo} />
                             </Box>
-                            <Box display='flex' justifyContent='center'>
-                                <Typography style={{ marginBottom: 10 }} variant='h5'>
-                                    Login to get started
+                            <Box display="flex" justifyContent="center">
+                                <Typography style={{ marginBottom: 10 }} variant="h5">
+                  Login to get started
                                 </Typography>
                             </Box>
                         </Typography>
-                        <Box display='flex' justifyContent='center'>
+                        <Box display="flex" justifyContent="center">
                             <Typography variant="h5" component="h2">
                                 <form onSubmit={handleSubmit}>
-                                    <label htmlFor='email'>Email: </label>
-                                    <input
-                                        style={{ marginLeft: 10, marginBottom: 10 }}
-                                        name='email'
-                                        placeholder='Enter your email'
-                                        type='email'
-                                        autoComplete='username'
+                                    <label htmlFor="email"></label>
+                                    <TextField
+                                        style={{ margin: 'auto', padding: '0.5rem' }}
+                                        name="email"
+                                        placeholder="Email"
+                                        type="email"
+                                        autoComplete="username"
+                                        id="outlined-text-area"
+                                        label="Email"
+                                        multiline
+                                        variant="outlined"
+                                        fullWidth
                                         value={email}
-                                        onChange={event => setEmail(event.target.value)}
+                                        onChange={(event) => setEmail(event.target.value)}
                                     />
                                     <br />
-                                    <label htmlFor='password'>Password: </label>
-                                    <input
-                                        style={{ marginLeft: 10 }}
-                                        name='password'
-                                        placeholder='Password'
-                                        type='password'
-                                        autoComplete='password'
+                                    <label htmlFor="password"></label>
+                                    <TextField
+                                        style={{ margin: 'auto', padding: '0.5rem' }}
+                                        name="password"
+                                        placeholder="Password"
+                                        type="password"
+                                        autoComplete="password"
+                                        id="outlined-basic"
+                                        label="Password"
+                                        multiline
+                                        variant="outlined"
+                                        fullWidth
                                         value={password}
-                                        onChange={event => setPassword(event.target.value)}
+                                        onChange={(event) => setPassword(event.target.value)}
                                     />
                                     <br />
                                 </form>
                             </Typography>
                         </Box>
-                        <Box display='flex' justifyContent='center'>
-                            <Typography className={classes.pos} color="textSecondary">
-                                Need an account? Speak with your administrator!
+                        <Box display="flex" justifyContent="center">
+                            <Typography
+                                className={classes.pos}
+                                color="textSecondary"
+                                style={{ fontSize: '12px' }}
+                            >
+                Need an account? Speak with your administrator!
                             </Typography>
                         </Box>
                     </CardContent>
-                    <Box display='flex' justifyContent='center'>
-                        <CardActions>
-                            <form onSubmit={handleSubmit}>
-                                <Button style={{marginBottom: 10}}variant="outlined" color="primary" type="submit" size="large">Login</Button>
-                            </form>
-                        </CardActions>
-                    </Box>
+                    <CardActions>
+                        <form
+                            onSubmit={handleSubmit}
+                            style={{
+                                margin: 'auto',
+                                marginTop: '-2rem',
+                                marginBottom: '1rem',
+                            }}
+                        >
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                size="medium"
+                                type="submit"
+                            >
+                Login
+                            </Button>
+                        </form>
+                    </CardActions>
                 </Card>
             </Container>
-
-
-        </div >
-
+        </div>
     );
 };
 
