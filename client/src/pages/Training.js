@@ -8,7 +8,10 @@ function Training() {
             <h2 style={{margin: 'auto'}}>
                 Training
             </h2>
-            <ReactPlayer url='https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO' className='video-player' />
+            <ReactPlayer 
+                url='https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO'
+                playing={true} 
+                className='video-player' />
         </div>
     );
 }
