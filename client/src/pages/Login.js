@@ -13,6 +13,7 @@ import BgCircles from '../components/ParticleBg';
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
+        marginTop: 150
     },
     bullet: {
         display: 'inline-block',

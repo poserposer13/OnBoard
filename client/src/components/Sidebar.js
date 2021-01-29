@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { mainListItems, secondaryListItems } from './listItems';
 import MenuIcon from '@material-ui/icons/Menu';
+import useAuth from '../hooks/auth';
 
 function SideBar(){
     const drawerWidth = 200;
@@ -44,7 +45,7 @@ function SideBar(){
         appBarSpacer: theme.mixins.toolbar,
     }));
 
-
+    const { isLoggedIn } = useAuth();
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
     const handleDrawerOpen = () => {
@@ -77,10 +78,12 @@ function SideBar(){
                         <MenuIcon />
                     </IconButton>}
                 </div>
+                <br />
+                <br />
+                <br />
                 <Divider />
+                <List>{isLoggedIn() ? mainListItems : secondaryListItems}</List>
                 
-                <List>{['/login'].includes(window.location.pathname) ? secondaryListItems : mainListItems}</List>
-
             </Drawer>
         </>
     );
