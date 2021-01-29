@@ -1,18 +1,18 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { purple } from '@material-ui/core/colors';
+import { indigo } from '@material-ui/core/colors';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-const PurpleCheckbox = withStyles({
+const IndigoCheckbox = withStyles({
     root: {
-        color: purple[400],
+        color: indigo[400],
         '&$checked': {
-            color: purple[600],
+            color: indigo[500],
         },
     },
     checked: {},
-})((props) => <Checkbox color="default" {...props} />);
+})((props) => <Checkbox color="primary" {...props} />);
 
 export default function CheckboxLabels(props) {
 
@@ -21,7 +21,7 @@ export default function CheckboxLabels(props) {
 
     return (
         <FormControlLabel
-            control={<PurpleCheckbox checked={isChecked} onChange={() => {onChange(id, isChecked);}} name="checkedG" />}
+            control={<IndigoCheckbox checked={isChecked} onChange={() => {onChange(id, isChecked);}} name="checkedG" />}
             label="Task Complete"
         />
     );

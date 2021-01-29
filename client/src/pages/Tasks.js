@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import API from '../utils/API';
 import TaskTabs from '../components/TaskTabs';
+import { ReactComponent as TasksLogo } from '../undraw/tasks.svg';
+import Box from '@material-ui/core/Box';
 
 const Tasks = function () {
     const [tasks, setTasks] = useState([]);
@@ -30,8 +32,14 @@ const Tasks = function () {
 
     return (
         <div>
-            <h2>Tasks</h2>
-            <TaskTabs selected={selected} setSelected={setSelected} tasks={tasks} toggleTask={toggleTask} />
+            <Box display='flex' justifyContent='center'>
+                <h2>
+                    Tasks <TasksLogo style={{ height: 153, width: 136 }} />
+                </h2>
+            </Box>
+            <Box display='flex' justifyContent='center'>
+                <TaskTabs selected={selected} setSelected={setSelected} tasks={tasks} toggleTask={toggleTask} />
+            </Box>
         </div >
     );
 };
