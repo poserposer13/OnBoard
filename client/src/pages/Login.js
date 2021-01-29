@@ -10,10 +10,13 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import BgCircles from '../components/ParticleBg';
 import TextField from '@material-ui/core/TextField';
+import { ReactComponent as LoginLogo } from '../undraw/login.svg';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
+        marginTop: 150
     },
     bullet: {
         display: 'inline-block',
@@ -26,6 +29,10 @@ const useStyles = makeStyles({
     pos: {
         marginBottom: 12,
     },
+    loginLogo: {
+        height: 193,
+        width: 176,
+    }
 });
 
 const Login = () => {
@@ -54,14 +61,49 @@ const Login = () => {
 
     return (
         <div>
-            <Container maxWidth="sm">
+            <Container maxWidth="md">
                 <BgCircles />
                 <Card className={classes.root}>
                     <CardContent>
                         <Typography className={classes.title} color="textSecondary" gutterBottom>
                             
                         </Typography>
-                        <Typography variant="h5" component="h2">
+                        <Box display='flex' justifyContent='center'>
+                            <Typography variant="h5" component="h2">
+                                <form onSubmit={handleSubmit}>
+                                    <label htmlFor='email'>Email: </label>
+                                    <input
+                                        style={{ marginLeft: 10, marginBottom: 10 }}
+                                        name='email'
+                                        placeholder='Enter your email'
+                                        type='email'
+                                        autoComplete='username'
+                                        value={email}
+                                        onChange={event => setEmail(event.target.value)}
+                                    />
+                                    <br />
+                                    <label htmlFor='password'>Password: </label>
+                                    <input
+                                        style={{ marginLeft: 10 }}
+                                        name='password'
+                                        placeholder='Password'
+                                        type='password'
+                                        autoComplete='password'
+                                        value={password}
+                                        onChange={event => setPassword(event.target.value)}
+                                    />
+                                    <br />
+                                </form>
+                            </Typography>
+                        </Box>
+                        <Box display='flex' justifyContent='center'>
+                            <Typography className={classes.pos} color="textSecondary">
+                                Need an account? Speak with your administrator!
+                            </Typography>
+                        </Box>
+                    </CardContent>
+                    <Box display='flex' justifyContent='center'>
+                        <CardActions>
                             <form onSubmit={handleSubmit}>
                                 <label htmlFor='email'></label>
                                 <TextField
@@ -97,6 +139,7 @@ const Login = () => {
                                 <br />
                             </form>
                         </Typography>
+                        </Box>
                         <Typography className={classes.pos} color="textSecondary" style={{fontSize: '12px'}}>
                             Need an account? Speak with your administrator!
                         </Typography>
@@ -110,10 +153,10 @@ const Login = () => {
                     </CardActions>
                 </Card>
             </Container>
-            
-            
+
+
         </div >
-        
+
     );
 };
 
