@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import BgCircles from '../components/ParticleBg';
+import { ReactComponent as LoginLogo } from '../undraw/login.svg';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles({
     root: {
@@ -25,6 +27,10 @@ const useStyles = makeStyles({
     pos: {
         marginBottom: 12,
     },
+    loginLogo: {
+        height: 193,
+        width: 176,
+    }
 });
 
 const Login = () => {
@@ -53,55 +59,72 @@ const Login = () => {
 
     return (
         <div>
-            <Container maxWidth="sm">
+            <Container maxWidth="md">
                 <BgCircles />
                 <Card className={classes.root}>
                     <CardContent>
                         <Typography className={classes.title} color="textSecondary" gutterBottom>
-                            Login Page
+                            <Box display='flex' justifyContent='center'>
+                                <Typography variant='h2'>
+                                    Welcome to OnBoard!
+                                </Typography>
+                            </Box>
+                            <Box display='flex' justifyContent='center'>
+                                <LoginLogo className={classes.loginLogo} />
+                            </Box>
+                            <Box display='flex' justifyContent='center'>
+                                <Typography style={{ marginBottom: 10 }} variant='h5'>
+                                    Login to get started
+                                </Typography>
+                            </Box>
                         </Typography>
-                        <Typography variant="h5" component="h2">
-                            <form onSubmit={handleSubmit}>
-                                <label htmlFor='email'>Email:</label>
-                                <input
-                                    name='email'
-                                    placeholder='Email'
-                                    type='email'
-                                    autoComplete='username'
-                                    value={email}
-                                    onChange={event => setEmail(event.target.value)}
-                                />
-                                <br />
-                                <label htmlFor='password'>Password:</label>
-                                <input
-                                    name='password'
-                                    placeholder='Password'
-                                    type='password'
-                                    autoComplete='password'
-                                    value={password}
-                                    onChange={event => setPassword(event.target.value)}
-                                />
-                                <br />
-                            </form>
-                        </Typography>
-                        <Typography className={classes.pos} color="textSecondary">
-                            Need an account? Speak with your administrator!
-                        </Typography>
-                        <CardActions variant="body2" component="p">
-
-                        </CardActions>
+                        <Box display='flex' justifyContent='center'>
+                            <Typography variant="h5" component="h2">
+                                <form onSubmit={handleSubmit}>
+                                    <label htmlFor='email'>Email: </label>
+                                    <input
+                                        style={{ marginLeft: 10, marginBottom: 10 }}
+                                        name='email'
+                                        placeholder='Enter your email'
+                                        type='email'
+                                        autoComplete='username'
+                                        value={email}
+                                        onChange={event => setEmail(event.target.value)}
+                                    />
+                                    <br />
+                                    <label htmlFor='password'>Password: </label>
+                                    <input
+                                        style={{ marginLeft: 10 }}
+                                        name='password'
+                                        placeholder='Password'
+                                        type='password'
+                                        autoComplete='password'
+                                        value={password}
+                                        onChange={event => setPassword(event.target.value)}
+                                    />
+                                    <br />
+                                </form>
+                            </Typography>
+                        </Box>
+                        <Box display='flex' justifyContent='center'>
+                            <Typography className={classes.pos} color="textSecondary">
+                                Need an account? Speak with your administrator!
+                            </Typography>
+                        </Box>
                     </CardContent>
-                    <CardActions>
-                        <form onSubmit={handleSubmit}>
-                            <Button type="submit" size="small">Login</Button>
-                        </form>
-                    </CardActions>
+                    <Box display='flex' justifyContent='center'>
+                        <CardActions>
+                            <form onSubmit={handleSubmit}>
+                                <Button style={{marginBottom: 10}}variant="outlined" color="primary" type="submit" size="large">Login</Button>
+                            </form>
+                        </CardActions>
+                    </Box>
                 </Card>
             </Container>
-            
-            
+
+
         </div >
-        
+
     );
 };
 
