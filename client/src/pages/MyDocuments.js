@@ -5,6 +5,11 @@ import { useState } from 'react';
 
 export default function MyDocuments({ token }) {
     const [images, setImages] = useState([]);
+    const [filename, setFilename] = useState('Choose File');
+
+    const onChange = event => {
+        setFilename(event.target.files[0].name);
+    };
 
     const Post = (e) => {
         e.preventDefault();
@@ -49,9 +54,10 @@ export default function MyDocuments({ token }) {
                             name="file"
                             className="custom-file-input"
                             id="file"
+                            onChange={onChange}
                         />
                         <label className="custom-file-label" htmlFor="file">
-                            Choose file
+                            {filename}
                         </label>
                     </div>
                 </form>
