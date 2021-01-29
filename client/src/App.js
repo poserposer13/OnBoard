@@ -56,12 +56,12 @@ function App() {
             overflow: 'auto',
         },
         container: {
-            paddingTop: theme.spacing(4),
+            paddingTop: 50,
             paddingBottom: theme.spacing(4),
         },
     }));
     const classes = useStyles();
-    
+
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -70,6 +70,7 @@ function App() {
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
+
                     <Box pt={4}>
                         <Router>
                             <Switch>
@@ -96,8 +97,8 @@ function App() {
                                 </PrivateRoute>
                             </Switch>
                         </Router>
-                        <Copyright />
                     </Box>
+                    <Copyright />
                 </Container>
             </main>
         </div>
