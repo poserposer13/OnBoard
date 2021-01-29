@@ -8,10 +8,10 @@ function Copyright() {
 
     const useStyles = makeStyles(() => ({
         root: {
-            position: 'fixed',
+            position:'fixed',
             bottom: 0,
-            paddingBottom: 30,
-            paddingLeft: 500
+            marginLeft: 10,
+            paddingBottom: 15,
         }
     }));
 

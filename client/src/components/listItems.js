@@ -10,6 +10,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import PolicyIcon from '@material-ui/icons/Policy';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
+import Copyright from './Copyright';
 
 
 function ListItemLink(props) {
@@ -17,44 +18,48 @@ function ListItemLink(props) {
 }
 
 export const mainListItems = (
-    <div>
-        <ListItemLink href='/' button>
-            <ListItemIcon>
-                <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Dashboard" />
-        </ListItemLink>
-        <ListItemLink href='/tasks' button>
-            <ListItemIcon>
-                <ListIcon />
-            </ListItemIcon>
-            <ListItemText primary="Tasks" />
-        </ListItemLink>
-        <ListItemLink href='/mydocuments' button>
-            <ListItemIcon>
-                <DescriptionIcon />
-            </ListItemIcon>
-            <ListItemText primary="Documents" />
-        </ListItemLink>
-        <ListItemLink href='/team' button>
-            <ListItemIcon>
-                <PeopleIcon />
-            </ListItemIcon>
-            <ListItemText primary="Team" />
-        </ListItemLink>
-        <ListItemLink href='/policies' button>
-            <ListItemIcon>
-                <PolicyIcon />
-            </ListItemIcon>
-            <ListItemText primary="Policies" />
-        </ListItemLink>
-        <ListItemLink href='/training' button>
-            <ListItemIcon>
-                <MenuBookIcon />
-            </ListItemIcon>
-            <ListItemText primary="Training" />
-        </ListItemLink>
-    </div>
+    <>
+        <div>
+            <ListItemLink href='/' button>
+                <ListItemIcon>
+                    <DashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+            </ListItemLink>
+            <ListItemLink href='/tasks' button>
+                <ListItemIcon>
+                    <ListIcon />
+                </ListItemIcon>
+                <ListItemText primary="Tasks" />
+            </ListItemLink>
+            <ListItemLink href='/mydocuments' button>
+                <ListItemIcon>
+                    <DescriptionIcon />
+                </ListItemIcon>
+                <ListItemText primary="Documents" />
+            </ListItemLink>
+            <ListItemLink href='/team' button>
+                <ListItemIcon>
+                    <PeopleIcon />
+                </ListItemIcon>
+                <ListItemText primary="Team" />
+            </ListItemLink>
+            <ListItemLink href='/policies' button>
+                <ListItemIcon>
+                    <PolicyIcon />
+                </ListItemIcon>
+                <ListItemText primary="Policies" />
+            </ListItemLink>
+            <ListItemLink href='/training' button>
+                <ListItemIcon>
+                    <MenuBookIcon />
+                </ListItemIcon>
+                <ListItemText primary="Training" />
+            </ListItemLink>
+            <Copyright />
+        </div>
+        
+    </>
 );
 
 export const secondaryListItems = (
