@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import BgCircles from '../components/ParticleBg';
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles({
     root: {
@@ -58,42 +59,53 @@ const Login = () => {
                 <Card className={classes.root}>
                     <CardContent>
                         <Typography className={classes.title} color="textSecondary" gutterBottom>
-                            Login Page
+                            
                         </Typography>
                         <Typography variant="h5" component="h2">
                             <form onSubmit={handleSubmit}>
-                                <label htmlFor='email'>Email:</label>
-                                <input
+                                <label htmlFor='email'></label>
+                                <TextField
+                                    style={{margin: 'auto', padding: '0.5rem'}}
                                     name='email'
                                     placeholder='Email'
                                     type='email'
                                     autoComplete='username'
+                                    id='outlined-text-area'
+                                    label='Email'
+                                    multiline
+                                    variant="outlined"
+                                    fullWidth
                                     value={email}
                                     onChange={event => setEmail(event.target.value)}
                                 />
                                 <br />
-                                <label htmlFor='password'>Password:</label>
-                                <input
+                                <label htmlFor='password'></label>
+                                <TextField
+                                    style={{margin: 'auto', padding: '0.5rem'}}
                                     name='password'
                                     placeholder='Password'
                                     type='password'
                                     autoComplete='password'
+                                    id='outlined-basic'
+                                    label='Password'
+                                    multiline
+                                    variant="outlined"
+                                    fullWidth
                                     value={password}
                                     onChange={event => setPassword(event.target.value)}
                                 />
                                 <br />
                             </form>
                         </Typography>
-                        <Typography className={classes.pos} color="textSecondary">
+                        <Typography className={classes.pos} color="textSecondary" style={{fontSize: '12px'}}>
                             Need an account? Speak with your administrator!
                         </Typography>
                         <CardActions variant="body2" component="p">
-
                         </CardActions>
                     </CardContent>
-                    <CardActions>
-                        <form onSubmit={handleSubmit}>
-                            <Button type="submit" size="small">Login</Button>
+                    <CardActions >
+                        <form onSubmit={handleSubmit} style={{margin: 'auto', marginTop: '-2rem', marginBottom: '1rem'}}>
+                            <Button variant='contained' color='primary' size='medium' type="submit" >Login</Button>
                         </form>
                     </CardActions>
                 </Card>
