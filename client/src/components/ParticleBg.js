@@ -6,7 +6,7 @@ function BgCircles() {
 
     return (
         <>
-            <ParticlesBg type='circle' bg={true} color='#4d4dff' />
+            <ParticlesBg type='cobweb' bg={true} color='#4d4dff' />
         </>
     );
 }

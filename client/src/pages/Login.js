@@ -50,6 +50,12 @@ const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log(event);
+        if (event.keyDown === 13) {
+            login(email, password).then((res) => {
+                history.replace(from);
+            });
+        }
         login(email, password).then((res) => {
             history.replace(from);
         });
@@ -87,32 +93,31 @@ const Login = () => {
                                 <form onSubmit={handleSubmit}>
                                     <label htmlFor="email"></label>
                                     <TextField
-                                        style={{ margin: 'auto', padding: '0.5rem' }}
+                                        variant="outlined"
+                                        margin="normal"
+                                        required
+                                        fullWidth
                                         name="email"
-                                        placeholder="Email"
                                         type="email"
                                         autoComplete="username"
-                                        id="outlined-text-area"
-                                        label="Email"
-                                        multiline
-                                        variant="outlined"
-                                        fullWidth
+                                        id="email"
+                                        label="Email Address"
                                         value={email}
+                                        autoFocus
                                         onChange={(event) => setEmail(event.target.value)}
                                     />
                                     <br />
                                     <label htmlFor="password"></label>
                                     <TextField
-                                        style={{ margin: 'auto', padding: '0.5rem' }}
+                                        variant="outlined"
+                                        margin="normal"
+                                        required
+                                        fullWidth
                                         name="password"
-                                        placeholder="Password"
                                         type="password"
                                         autoComplete="password"
-                                        id="outlined-basic"
+                                        id="password"
                                         label="Password"
-                                        multiline
-                                        variant="outlined"
-                                        fullWidth
                                         value={password}
                                         onChange={(event) => setPassword(event.target.value)}
                                     />
