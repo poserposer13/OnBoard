@@ -16,12 +16,11 @@ const IndigoCheckbox = withStyles({
 
 export default function CheckboxLabels(props) {
 
-    const {isChecked, onChange, id} = props;
-
+    const { isChecked, onChange, id } = props;
 
     return (
         <FormControlLabel
-            control={<IndigoCheckbox checked={isChecked} onChange={() => {onChange(id, isChecked);}} name="checkedG" />}
+            control={<IndigoCheckbox checked={isChecked} onChange={() => { onChange(id, isChecked); }} name="checkedG" />}
             label="Task Complete"
         />
     );
