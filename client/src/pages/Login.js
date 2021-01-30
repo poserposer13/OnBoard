@@ -122,6 +122,17 @@ const Login = () => {
                                         onChange={(event) => setPassword(event.target.value)}
                                     />
                                     <br />
+                                    <CardActions>
+                                        <Button
+                                            style={{ marginLeft: '3.7rem' }}
+                                            variant="contained"
+                                            color="primary"
+                                            size="medium"
+                                            type="submit"
+                                        >
+                Login
+                                        </Button>
+                                    </CardActions>
                                 </form>
                             </Typography>
                         </Box>
@@ -135,25 +146,6 @@ const Login = () => {
                             </Typography>
                         </Box>
                     </CardContent>
-                    <CardActions>
-                        <form
-                            onSubmit={handleSubmit}
-                            style={{
-                                margin: 'auto',
-                                marginTop: '-2rem',
-                                marginBottom: '1rem',
-                            }}
-                        >
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                size="medium"
-                                type="submit"
-                            >
-                Login
-                            </Button>
-                        </form>
-                    </CardActions>
                 </Card>
             </Container>
         </div>

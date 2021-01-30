@@ -34,10 +34,10 @@ function Team() {
             <h2 >
                 Team <TeamLogo style={{ height: 153, width: 136 }}/>
             </h2>
-            <p className={classes.center}>
+            <h2 className={classes.center}>
                 Meet your team
                 
-            </p>
+            </h2>
             <Grid container justify="space-evenly" alignItems="center">
                 <Grid item> 
                     <Avatar alt="Andrew" src={Andrew} className={classes.large} />
