@@ -2,6 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import MyDocs from '../components/myDocs';
 import { useState } from 'react';
+import Button from '@material-ui/core/Button';
+import {ReactComponent as UploadLogo} from '../undraw/upload.svg';
 
 export default function MyDocuments({ token }) {
     const [images, setImages] = useState([]);
@@ -39,7 +41,9 @@ export default function MyDocuments({ token }) {
 
     return (
         <div>
-            <h2>Document Upload</h2>
+            <h2>
+                Uploads <UploadLogo style={{ height: 153, width: 136 }}/>
+            </h2>
             <div className="container">
                 <div className="jumbotron">
                     <h3 className="display-4">Please upload necessary documents here</h3>
@@ -56,14 +60,20 @@ export default function MyDocuments({ token }) {
                             id="file"
                             onChange={onChange}
                         />
-                        <label className="custom-file-label" htmlFor="file">
+                        <label style={{marginLeft: '15rem', marginRight: '15rem'}} className="custom-file-label" htmlFor="file">
                             {filename}
                         </label>
                     </div>
                 </form>
-                <button type="button" className="btn btn-primary btn-block" onClick={Post}>
-                    Upload
-                </button>
+                <div className='container'>
+                    <Button
+                        style={{marginLeft: '45%', marginRight: '50%'}}
+                        variant='contained'
+                        color='primary'
+                        onClick={Post}>
+                            Upload
+                    </Button>
+                </div>
                 <MyDocs parentImages={images} />
             </div>
         </div>
