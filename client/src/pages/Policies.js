@@ -45,9 +45,6 @@ function Policies() {
             boxShadow: theme.shadows[5],
             padding: theme.spacing(2, 4, 3),
         },
-        reviewed: {
-
-        }
     }));
 
     const classes = useStyles();
@@ -164,23 +161,29 @@ function Policies() {
     );
 
     return (
-        <div>
+        <>
             <h2>
                 Policies <PolicyLogo style={{ height: 153, width: 136 }} />
             </h2>
             <p>
                 Click on a policy image to review. Once completed, click the "acknowledge" button to verify that you have read and understand the policy.
             </p>
-            <div className="row">
-                <div className="col">
-                    <Button variant="outlined" color="primary" onClick={handleToggle1}>
-                        <img src={nda} alt="non-disclosure-agreement" style={{ height: '400px', width: '320px' }} />
-                    </Button>
-                    {flag ? (
-                        <Button variant="contained" color='primary' onClick={handleOpenA}>Acknowledge</Button>
-                    ) : (
-                        <Button variant="contained" color='primary' disabled>Acknowledge</Button>
-                    )}
+            <div className='row'>
+                <div className='col' style={{ margin: '10px' }}>
+                    <div className='row' style={{display: 'flex', justifyContent: 'center'}}>
+                        <Button variant="outlined" color="primary" onClick={handleToggle1} style={{ margin: '10px' }}>
+                            <img src={nda} alt="non-disclosure-agreement" style={{ height: '400px', width: '320px' }} />
+                        </Button>
+                    </div>
+
+                    <div className='row' style={{display: 'flex', justifyContent: 'center'}}>
+                        {flag ? (
+                            <Button variant="contained" color='primary' onClick={handleOpenA}>Acknowledge</Button>
+                        ) : (
+                            <Button variant="contained" color='primary' disabled>Acknowledged</Button>
+                        )}
+                    </div>
+
                     <Modal
                         open={openA}
                         onClose={handleCloseA}
@@ -190,16 +193,21 @@ function Policies() {
                         {body}
                     </Modal>
                 </div>
-                <div className="col">
-                    <Button variant="outlined" color="primary" onClick={handleToggle2}>
-                        <img src={nonCompete} alt="non-compete-agreement" style={{ height: '400px', width: '320px' }} />
-                    </Button>
+                <div className='col' style={{ margin: '10px' }}>
+                    <div className='row' style={{display: 'flex', justifyContent: 'center'}}>
+                        <Button variant="outlined" color="primary" onClick={handleToggle2} style={{ margin: '10px' }}>
+                            <img src={nonCompete} alt="non-compete-agreement" style={{ height: '400px', width: '320px' }} />
+                        </Button>
+                    </div>
 
-                    {flag2 ? (
-                        <Button variant="contained" color='primary' onClick={handleOpenB}>Acknowledge</Button>
-                    ) : (
-                        <Button variant="contained" color='primary' disabled>Acknowledge</Button>
-                    )}
+                    <div className='row' style={{display: 'flex', justifyContent: 'center'}}>
+                        {flag2 ? (
+                            <Button variant="contained" color='primary' onClick={handleOpenB}>Acknowledge</Button>
+                        ) : (
+                            <Button variant="contained" color='primary' disabled>Acknowledged</Button>
+                        )}
+                    </div>
+
                     <Modal
                         open={openB}
                         onClose={handleCloseB}
@@ -208,16 +216,23 @@ function Policies() {
                     >
                         {body2}
                     </Modal>
+
                 </div>
-                <div className="col">
-                    <Button variant="outlined" color="primary" onClick={handleToggle3}>
-                        <img src={empHandbook} alt="employee-handbook-agreement" style={{ height: '400px', width: '320px' }} />
-                    </Button>
-                    {flag3 ? (
-                        <Button variant="contained" color='primary' onClick={handleOpenC}>Acknowledge</Button>
-                    ) : (
-                        <Button variant="contained" color='primary' disabled>Acknowledge</Button>
-                    )}
+                <div className='col' style={{ margin: '10px' }}>
+                    <div className='row' style={{display: 'flex', justifyContent: 'center'}}>
+                        <Button variant="outlined" color="primary" onClick={handleToggle3} style={{ margin: '10px' }}>
+                            <img src={empHandbook} alt="employee-handbook-agreement" style={{ height: '400px', width: '320px' }} />
+                        </Button>
+                    </div>
+
+                    <div className='row' style={{display: 'flex', justifyContent: 'center'}}>
+                        {flag3 ? (
+                            <Button variant="contained" color='primary' onClick={handleOpenC}>Acknowledge</Button>
+                        ) : (
+                            <Button variant="contained" color='primary' disabled>Acknowledged</Button>
+                        )}
+                    </div>
+
                     <Modal
                         open={openC}
                         onClose={handleCloseC}
@@ -228,6 +243,7 @@ function Policies() {
                     </Modal>
                 </div>
             </div>
+
             <Backdrop className={classes.backdrop} open={open1} onClick={handleClose1}>
                 <div className="row">
                     <img src={nda} alt="non-disclosure-agreement" style={{ height: '800px', width: '640px' }} />
@@ -240,7 +256,7 @@ function Policies() {
             <Backdrop className={classes.backdrop} open={open3} onClick={handleClose3}>
                 <img src={empHandbook} alt="non-disclosure-agreement" style={{ height: '800px', width: '640px' }} />
             </Backdrop>
-        </div>
+        </>
     );
 }
 
