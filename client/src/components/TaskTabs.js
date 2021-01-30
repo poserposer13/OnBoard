@@ -12,6 +12,8 @@ import Box from '@material-ui/core/Box';
 import ChangeCompletion from './ChangeCompletion';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+import { ReactComponent as CelebrationLogo } from '../undraw/celebration.svg';
+import { ReactComponent as NotCompleteLogo } from '../undraw/notcomplete.svg';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -51,8 +53,8 @@ function a11yProps(index) {
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        backgroundColor: theme.palette.background.paper,
-        width: 500,
+        backgroundColor: '#fafafa',
+        width: '100%',
         '& > * + *': {
             marginTop: theme.spacing(2),
         },
@@ -70,10 +72,17 @@ export default function FullWidthTabs(props) {
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
     const [open, setOpen] = React.useState(false);
+    let complete = 0;
 
     const handleClick = () => {
         setOpen(true);
     };
+
+    props.tasks.forEach(task => {
+        if (task.isComplete) {
+            complete++;
+        }
+    });
 
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -111,25 +120,56 @@ export default function FullWidthTabs(props) {
                 index={value}
                 onChangeIndex={handleChangeIndex}
             >
-                <TabPanel value={value} index={0} dir={theme.direction}>
-                    <ol> {props.tasks.filter(task => !task.isComplete).map(task => {
-                        return (
-                            <li key={task._id} onClick={handleClick}>
-                                <strong>{task.title}</strong> {task.body} <ChangeCompletion onChange={props.toggleTask} id={task._id} isChecked={task.isComplete} />
-                                <sub>Assigned By: {task.user.firstName} {task.user.lastName}</sub>
-                            </li>
-                        );
-                    })} </ol>
+                <TabPanel style={{ backgroundColor: '#fafafa' }} value={value} index={0} dir={theme.direction}>
+                    {complete !== props.tasks.length ?
+                        <ol>
+                            {props.tasks.filter(task => !task.isComplete).map(task => {
+                                return (
+                                    <div className='row' style={{ width: '100%' }}>
+                                        <li style={{ width: '100%', padding: 10, boxSizing: 'border-box', display: 'block', marginTop: 20, boxShadow: ' 1px 1px 4px 4px #ccc', marginLeft: 0, marginRight: 0 }} key={task._id} onClick={handleClick}>
+                                            <strong>{task.title}</strong>
+                                            <br />
+                                            <ChangeCompletion onChange={props.toggleTask} id={task._id} isChecked={task.isComplete} />
+                                            <br />
+                                            <sub>Assigned By: {task.user.firstName} {task.user.lastName}</sub>
+                                        </li>
+                                    </div>
+                                );
+                            })} </ol>
+                        :
+                        <div style={{ textAlign: 'center', width: '100%', color: '#696969', lineHeight: '1rem', letterSpacing: '0.15rem' }}>
+                            <CelebrationLogo style={{ height: 353, width: 336 }} />
+                            <div>
+                                <h3> Great job! You're all caught up on your tasks. </h3>
+                                <h3>Future tasks will be posted here, be sure to check back later.</h3>
+                            </div>
+                        </div>
+                    }
                 </TabPanel>
-                <TabPanel value={value} index={1} dir={theme.direction}>
-                    <ol>{props.tasks.filter(task => task.isComplete).map(task => {
-                        return (
-                            <li key={task._id}>
-                                <strong>{task.title}</strong> {task.body} <ChangeCompletion onChange={props.toggleTask} id={task._id} isChecked={task.isComplete} />
-                                <sub>Assigned By: {task.user.firstName} {task.user.lastName}</sub>
-                            </li>
-                        );
-                    })} </ol>
+                <TabPanel style={{ backgroundColor: '#fafafa' }} value={value} index={1} dir={theme.direction}>
+                    {complete > 0 ?
+                        <ol>{props.tasks.filter(task => task.isComplete).map(task => {
+                            return (
+                                <div className='row' style={{ width: '100%' }}>
+                                    <li style={{ width: '100%', padding: 10, boxSizing: 'border-box', display: 'block', marginTop: 20, boxShadow: ' 1px 1px 4px 4px #ccc', marginLeft: 0, marginRight: 0 }} key={task._id}>
+                                        <strong>{task.title}</strong>
+                                        <br />
+                                        <ChangeCompletion onChange={props.toggleTask} id={task._id} isChecked={task.isComplete} />
+                                        <br />
+                                        <sub>Assigned By: {task.user.firstName} {task.user.lastName}</sub>
+                                    </li>
+                                </div>
+                            );
+                        })} </ol>
+                        :
+                        <div style={{ textAlign: 'center', width: '100%', color: '#696969', lineHeight: '1rem', letterSpacing: '0.15rem' }}>
+                            <NotCompleteLogo style={{ height: 353, width: 336 }} />
+                            <div>
+                                <h3>No tasks have been completed yet.</h3>
+                                <h3>Once a task is completed, it will be displayed here.</h3>
+                            </div>
+                        </div>
+                    }
                 </TabPanel>
             </SwipeableViews>
             <Snackbar className={classes.footer} open={open} autoHideDuration={1500} onClose={handleClose}>
