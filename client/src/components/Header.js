@@ -55,11 +55,11 @@ function Header() {
                     <Typography component="h1" variant="h5" color="inherit" noWrap className={classes.title}>
                         {isLoggedIn() ?
                             <>
-                                <h1>Hello, {getProfile().firstName} {getProfile().lastName}!</h1>
+                                <h1 style={{fontFamily: 'Montserrat'}}>Hello, {getProfile().firstName} {getProfile().lastName}!</h1>
                             </>
                             :
                             <>
-                                <h1>Hello, Please Log-In</h1>
+                                <h1 style={{fontFamily: 'Montserrat'}}>OnBoard</h1>
                             </>
                         }
                     </Typography>
