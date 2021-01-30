@@ -20,7 +20,6 @@ const Tasks = function () {
     async function fetchTasks() {
         const { data } = await API.getTasks();
         setTasks(data);
-        console.log(data);
     }
 
     const toggleTask = async (id, checkedStatus) => {
@@ -32,11 +31,9 @@ const Tasks = function () {
 
     return (
         <div>
-            <Box display='flex' justifyContent='center'>
-                <h2>
-                    Tasks <TasksLogo style={{ height: 153, width: 136 }} />
-                </h2>
-            </Box>
+            <h2>
+                Tasks <TasksLogo style={{ height: 153, width: 136 }} />
+            </h2>
             <Box display='flex' justifyContent='center'>
                 <TaskTabs selected={selected} setSelected={setSelected} tasks={tasks} toggleTask={toggleTask} />
             </Box>
