@@ -21,7 +21,7 @@ export default function CheckboxLabels(props) {
     return (
         <FormControlLabel
             control={<IndigoCheckbox checked={isChecked} onChange={() => { onChange(id, isChecked); }} name="checkedG" />}
-            label="Task Complete"
+            label="Completed"
         />
     );
 }
