@@ -16,7 +16,7 @@ import Box from '@material-ui/core/Box';
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
-        marginTop: 150,
+        marginTop: 120
     },
     bullet: {
         display: 'inline-block',
