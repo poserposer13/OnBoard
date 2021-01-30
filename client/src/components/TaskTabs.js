@@ -10,7 +10,12 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import ChangeCompletion from './ChangeCompletion';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -48,13 +53,35 @@ const useStyles = makeStyles((theme) => ({
     root: {
         backgroundColor: theme.palette.background.paper,
         width: 500,
+        '& > * + *': {
+            marginTop: theme.spacing(2),
+        },
     },
+    footer: {
+        position: 'fixed',
+        bottom: 20,
+        left: 'calc(50% + 100px)',
+        transform: 'translateX(-50%)'
+    }
 }));
 
 export default function FullWidthTabs(props) {
     const classes = useStyles();
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
+    const [open, setOpen] = React.useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -77,7 +104,6 @@ export default function FullWidthTabs(props) {
                 >
                     <Tab icon={<FormatListNumberedOutlinedIcon />} label="In Progress" onClick={() => props.setSelected('In-Progress')} {...a11yProps(0)} />
                     <Tab icon={<CheckCircleRoundedIcon />} label="Completed" onClick={() => props.setSelected('Completed')} {...a11yProps(1)} />
-
                 </Tabs>
             </AppBar>
             <SwipeableViews
@@ -88,7 +114,7 @@ export default function FullWidthTabs(props) {
                 <TabPanel value={value} index={0} dir={theme.direction}>
                     <ol> {props.tasks.filter(task => !task.isComplete).map(task => {
                         return (
-                            <li key={task._id}>
+                            <li key={task._id} onClick={handleClick}>
                                 <strong>{task.title}</strong> {task.body} <ChangeCompletion onChange={props.toggleTask} id={task._id} isChecked={task.isComplete} />
                                 <sub>Assigned By: {task.user.firstName} {task.user.lastName}</sub>
                             </li>
@@ -106,6 +132,11 @@ export default function FullWidthTabs(props) {
                     })} </ol>
                 </TabPanel>
             </SwipeableViews>
+            <Snackbar className={classes.footer} open={open} autoHideDuration={1500} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success">
+                    Nice work!
+                </Alert>
+            </Snackbar>
         </div>
     );
 }

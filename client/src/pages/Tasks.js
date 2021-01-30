@@ -20,7 +20,6 @@ const Tasks = function () {
     async function fetchTasks() {
         const { data } = await API.getTasks();
         setTasks(data);
-        console.log(data);
     }
 
     const toggleTask = async (id, checkedStatus) => {
