@@ -45,7 +45,7 @@ function Team() {
                     <Avatar alt="Andrew" src={Andrew} className={classes.large} />
                     <h2><Typed strings={['Andrew']} typeSpeed={95} style={{ display: 'flex', justifyContent: 'center', margin: '0.5rem' }}/></h2>
                     <h6 style={{ display: 'flex', justifyContent: 'center', margin: '1rem' }}>
-                        <Typed showCursor={false} strings={['Software Engineer']} typeSpeed={60} style={{ display: 'flex', justifyContent: 'center', margin: '0.25rem' }}/>
+                        <Typed showCursor={false} strings={['Software Engineer']} typeSpeed={40} style={{ display: 'flex', justifyContent: 'center', margin: '0.25rem' }}/>
                     </h6>
                     <div className='container' style={{ display: 'flex', justifyContent: 'center' }}>
                         <a href="mailto:andrewmosesdrive@gmail.com" target="_top" style={{color:'black'}}><EmailIcon style={{ margin: '0.5rem' }}/></a>
@@ -61,7 +61,7 @@ function Team() {
                     <Avatar alt="Josh" src={Josh} className={classes.large} />
                     <h2><Typed strings={['Josh']} typeSpeed={95} style={{ display: 'flex', justifyContent: 'center', margin: '0.5rem' }}/></h2>
                     <h6 style={{ display: 'flex', justifyContent: 'center', margin: '1rem' }}>
-                        <Typed showCursor={false} strings={['Software Engineer']} typeSpeed={60} style={{ display: 'flex', justifyContent: 'center', margin: '0.25rem' }}/>                    </h6>
+                        <Typed showCursor={false} strings={['Software Engineer']} typeSpeed={40} style={{ display: 'flex', justifyContent: 'center', margin: '0.25rem' }}/>                    </h6>
                     <div className='container' style={{ display: 'flex', justifyContent: 'center' }}>
                         <a href="mailto:jdp237@nau.edu" target="_top" style={{color:'black'}}><EmailIcon style={{ margin: '0.5rem' }}/></a>
                         <Link href="https://github.com/jdilla1212" style={{ margin: '0.5rem' }} color="inherit">
@@ -76,7 +76,7 @@ function Team() {
                     <Avatar alt="Sean" src={Sean} className={classes.large} />
                     <h2><Typed strings={['Sean']} typeSpeed={95} style={{ display: 'flex', justifyContent: 'center', margin: '0.5rem' }}/></h2>
                     <h6 style={{ display: 'flex', justifyContent: 'center', margin: '1rem' }}>
-                        <Typed showCursor={false} strings={['Software Engineer']} typeSpeed={60} style={{ display: 'flex', justifyContent: 'center', margin: '0.25rem' }}/>
+                        <Typed showCursor={false} strings={['Software Engineer']} typeSpeed={40} style={{ display: 'flex', justifyContent: 'center', margin: '0.25rem' }}/>
                     </h6>
                     <div className='container' style={{ display: 'flex', justifyContent: 'center' }}>
                         <a href="mailto:poserposer@me.com" target="_top" style={{color:'black'}}><EmailIcon style={{ margin: '0.5rem' }}/></a>
@@ -92,7 +92,7 @@ function Team() {
                     <Avatar alt="Joseph" src={Joseph} className={classes.large} />
                     <h2><Typed strings={['Joseph']} typeSpeed={95} style={{ display: 'flex', justifyContent: 'center', margin: '0.5rem' }}/></h2>
                     <h6 style={{ display: 'flex', justifyContent: 'center', margin: '1rem' }}>
-                        <Typed showCursor={false} strings={['Software Engineer']} typeSpeed={60} style={{ display: 'flex', justifyContent: 'center', margin: '0.25rem' }}/>
+                        <Typed showCursor={false} strings={['Software Engineer']} typeSpeed={40} style={{ display: 'flex', justifyContent: 'center', margin: '0.25rem' }}/>
                     </h6>
                     <div className='container' style={{ display: 'flex', justifyContent: 'center' }}>
                         <a href="mailto:joey@joeyjepson.com" target="_top" style={{color:'black'}}><EmailIcon style={{ margin: '0.5rem' }}/></a>
