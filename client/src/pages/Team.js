@@ -40,11 +40,11 @@ function Team() {
             <br/>
             <br/>
             <br/>
-            <Grid container justify="space-evenly" alignItems="center">
+            <Grid style={{marginTop: 30}} container justify="space-evenly" alignItems="center">
                 <Grid item>
                     <Avatar alt="Andrew" src={Andrew} className={classes.large} />
-                    <h2><Typed strings={['Andrew']} typeSpeed={75} style={{ display: 'flex', justifyContent: 'center', margin: '0.5rem' }}/></h2>
-                    <h6 style={{ display: 'flex', justifyContent: 'center', margin: '0.5rem' }}>
+                    <h2><Typed strings={['Andrew']} typeSpeed={95} style={{ display: 'flex', justifyContent: 'center', margin: '0.5rem' }}/></h2>
+                    <h6 style={{ display: 'flex', justifyContent: 'center', margin: '1rem' }}>
                         <Typed showCursor={false} strings={['Software Engineer']} typeSpeed={40} style={{ display: 'flex', justifyContent: 'center', margin: '0.25rem' }}/>
                     </h6>
                     <div className='container' style={{ display: 'flex', justifyContent: 'center' }}>
@@ -59,7 +59,7 @@ function Team() {
                 </Grid>
                 <Grid item>
                     <Avatar alt="Josh" src={Josh} className={classes.large} />
-                    <h2><Typed strings={['Josh']} typeSpeed={75} style={{ display: 'flex', justifyContent: 'center', margin: '0.5rem' }}/></h2>
+                    <h2><Typed strings={['Josh']} typeSpeed={95} style={{ display: 'flex', justifyContent: 'center', margin: '0.5rem' }}/></h2>
                     <h6 style={{ display: 'flex', justifyContent: 'center', margin: '1rem' }}>
                         <Typed showCursor={false} strings={['Software Engineer']} typeSpeed={40} style={{ display: 'flex', justifyContent: 'center', margin: '0.25rem' }}/>                    </h6>
                     <div className='container' style={{ display: 'flex', justifyContent: 'center' }}>
@@ -74,7 +74,7 @@ function Team() {
                 </Grid>
                 <Grid item>
                     <Avatar alt="Sean" src={Sean} className={classes.large} />
-                    <h2><Typed strings={['Sean']} typeSpeed={50} style={{ display: 'flex', justifyContent: 'center', margin: '0.5rem' }}/></h2>
+                    <h2><Typed strings={['Sean']} typeSpeed={95} style={{ display: 'flex', justifyContent: 'center', margin: '0.5rem' }}/></h2>
                     <h6 style={{ display: 'flex', justifyContent: 'center', margin: '1rem' }}>
                         <Typed showCursor={false} strings={['Software Engineer']} typeSpeed={40} style={{ display: 'flex', justifyContent: 'center', margin: '0.25rem' }}/>
                     </h6>
@@ -90,7 +90,7 @@ function Team() {
                 </Grid>
                 <Grid item>
                     <Avatar alt="Joseph" src={Joseph} className={classes.large} />
-                    <h2><Typed strings={['Joseph']} typeSpeed={50} style={{ display: 'flex', justifyContent: 'center', margin: '0.5rem' }}/></h2>
+                    <h2><Typed strings={['Joseph']} typeSpeed={95} style={{ display: 'flex', justifyContent: 'center', margin: '0.5rem' }}/></h2>
                     <h6 style={{ display: 'flex', justifyContent: 'center', margin: '1rem' }}>
                         <Typed showCursor={false} strings={['Software Engineer']} typeSpeed={40} style={{ display: 'flex', justifyContent: 'center', margin: '0.25rem' }}/>
                     </h6>
