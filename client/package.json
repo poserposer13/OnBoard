@@ -30,8 +30,7 @@
         "build": "react-scripts build",
         "test": "npm run lint",
         "lint": "eslint src",
-        "fix": "eslint --fix src",
-        "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
+        "fix": "eslint --fix src"
     },
     "eslintConfig": {
         "extends": [
