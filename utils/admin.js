@@ -3,6 +3,7 @@ const AdminBroExpress = require('admin-bro-expressjs');
 const AdminBroMongoose = require('@admin-bro/mongoose');
 const bcrypt = require('bcryptjs');
 
+const Policy = require('../models/policy');
 const User = require('../models/user');
 const Task = require('../models/task');
 const FileMetaData = require('../models/fileMetaData');
@@ -23,13 +24,19 @@ const adminBro = new AdminBro({
         {
             resource: Task,
             options: {
-                // for later
+                // config
             }
         },
         {
             resource: FileMetaData,
             options: {
-                // for later
+                // config
+            }
+        },
+        {
+            resource: Policy,
+            options: {
+                // config
             }
         }
     ],

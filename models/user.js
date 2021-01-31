@@ -30,6 +30,18 @@ const userSchema = new Schema(
             type: Boolean,
             default: true,
         },
+        title: {
+            type: String,
+            trim: true
+        },
+        github: {
+            type: String,
+            trim: true
+        },
+        linkedin: {
+            type: String,
+            trim: true
+        },
         tasks: [
             { type: Schema.Types.ObjectId, ref: 'Task'}
         ]
