@@ -7,7 +7,7 @@ import {ReactComponent as UploadLogo} from '../undraw/upload.svg';
 
 export default function MyDocuments({ token }) {
     const [images, setImages] = useState([]);
-    const [filename, setFilename] = useState('Choose File');
+    const [filename, setFilename] = useState('Please choose a file ending in .jpg or .png');
 
     const onChange = event => {
         setFilename(event.target.files[0].name);
@@ -42,13 +42,13 @@ export default function MyDocuments({ token }) {
     return (
         <div>
             <h2>
-                Uploads <UploadLogo style={{ height: 153, width: 136 }}/>
+                Documents <UploadLogo style={{ height: 153, width: 136 }}/>
             </h2>
             <div className="container">
                 <div className="jumbotron">
-                    <h3 className="display-4">Please upload necessary documents here</h3>
+                    <h3 className="display-4">Documents you upload will appear here</h3>
                     <p className="lead">
-                        Note: files uploaded must be .jpeg or .png files
+                        Using the browse button below, please upload documents as needed.
                     </p>
                 </div>
                 <form action="/upload" method="POST" encType="multipart/form-data">
