@@ -165,7 +165,7 @@ function Policies() {
             <h2>
                 Policies <PolicyLogo style={{ height: 153, width: 136 }} />
             </h2>
-            <p>
+            <p style={{fontSize: 20, color: '#696969', lineHeight: '1.25rem', letterSpacing: '0.08rem' }}>
                 Click on a policy image to review. Once completed, click the "acknowledge" button to verify that you have read and understand the policy.
             </p>
             <div className='row'>

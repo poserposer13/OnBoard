@@ -62,7 +62,7 @@ const Login = () => {
     };
 
     if (isLoggedIn()) {
-        return <Redirect to={location.state || '/'} />;
+        return <Redirect to={location.state || '/tasks'} />;
     }
 
     return (
@@ -142,7 +142,7 @@ const Login = () => {
                                 color="textSecondary"
                                 style={{ fontSize: '12px', marginTop: 20 }}
                             >
-                                <a href='/admin'>Administrator login</a>
+                                <a href='/admin'>Administrator Login</a>
                             </Typography>
                         </Box>
                     </CardContent>

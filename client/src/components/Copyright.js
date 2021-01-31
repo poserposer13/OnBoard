@@ -21,7 +21,7 @@ function Copyright() {
     return (
         <Typography className={classes.root} variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
-            <Link color="inherit" href="/">
+            <Link color="inherit">
                 OnBoard
             </Link>{' '}
             {new Date().getFullYear()}
