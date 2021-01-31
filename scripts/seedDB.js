@@ -9,34 +9,50 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/project3', {
     useFindAndModify: false
 });
 
+let userSeed = [
+    {
+        email: 'admin@admin.com',
+        password: 'admin',
+        firstName: 'test',
+        lastName: 'test',
+        isAdmin: true,
+        title: 'test',
+        github: 'n/a',
+        linkedin: 'n/a',
+    }
+];
+
 let taskSeed = [
     {
 
-        type: 'documentupload',
-        title: 'Please upload a document.',
+        type: 'Document upload',
+        title: 'In the documents section, please upload a completed I-9 form.',
 
     },
     {
 
-        type: 'policyreview',
-        title: 'You have a policy to review. Please sign.',
+        type: 'Policy review',
+        title: 'In the policy section, please review the current policy documents, and acknowledge each once completed.',
 
     },
     {
 
-        type: 'trainingvideo',
-        title: 'Review our safety training video.',
+        type: 'Training video',
+        title: 'In the training section, please review our safety training video.',
 
 
     },
     {
 
-        type: 'team',
-        title: 'Get acquainted with your team.',
+        type: 'Team',
+        title: 'In the team section, please view your new team members.',
 
     },
 
 ];
+
+db.User.create(userSeed);
+
 
 db.User.find().then(users => {
     const user = users[0];
@@ -48,9 +64,7 @@ db.User.find().then(users => {
             console.log(data.result.n + ' tasks inserted!');
             process.exit(0);
         });
-})
-
-    .catch(err => {
-        console.error(err);
-        process.exit(1);
-    });
+}).catch(err => {
+    console.error(err);
+    process.exit(1);
+});
