@@ -24,31 +24,31 @@ export const mainListItems = (
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" />
             </ListItemLink> */}
-            <ListItemLink href='/tasks' button>
+            <ListItemLink style={{color: 'white'}} href='/tasks' button>
                 <ListItemIcon>
                     <ListIcon style={{color: '#f2f4ff' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Tasks" />
             </ListItemLink>
-            <ListItemLink href='/mydocuments' button>
+            <ListItemLink style={{color: 'white'}} href='/mydocuments' button>
                 <ListItemIcon>
                     <DescriptionIcon style={{color: '#f2f4ff' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Documents" />
             </ListItemLink>
-            <ListItemLink href='/team' button>
+            <ListItemLink style={{color: 'white'}} href='/team' button>
                 <ListItemIcon>
                     <PeopleIcon style={{color: '#f2f4ff' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Team" />
             </ListItemLink>
-            <ListItemLink href='/policies' button>
+            <ListItemLink style={{color: 'white'}} href='/policies' button>
                 <ListItemIcon>
                     <PolicyIcon style={{color: '#f2f4ff' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Policies" />
             </ListItemLink>
-            <ListItemLink href='/training' button>
+            <ListItemLink style={{color: 'white'}} href='/training' button>
                 <ListItemIcon>
                     <MenuBookIcon style={{color: '#f2f4ff' }}/>
                 </ListItemIcon>
