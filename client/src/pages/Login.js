@@ -84,7 +84,7 @@ const Login = () => {
                             </Box>
                             <Box display="flex" justifyContent="center">
                                 <Typography style={{ marginBottom: 10 }} variant="h5">
-                  Login to get started
+                                    Login to get started
                                 </Typography>
                             </Box>
                         </Typography>
@@ -130,7 +130,7 @@ const Login = () => {
                                             size="medium"
                                             type="submit"
                                         >
-                Login
+                                            Login
                                         </Button>
                                     </CardActions>
                                 </form>
@@ -140,9 +140,9 @@ const Login = () => {
                             <Typography
                                 className={classes.pos}
                                 color="textSecondary"
-                                style={{ fontSize: '12px' }}
+                                style={{ fontSize: '12px', marginTop: 20 }}
                             >
-                Need an account? Speak with your administrator!
+                                <a href='/admin'>Administrator login</a>
                             </Typography>
                         </Box>
                     </CardContent>

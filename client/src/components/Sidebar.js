@@ -6,15 +6,16 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { mainListItems, secondaryListItems } from './listItems';
+import { mainListItems } from './listItems';
 import MenuIcon from '@material-ui/icons/Menu';
 import useAuth from '../hooks/auth';
 
-function SideBar(){
+function SideBar() {
     const drawerWidth = 200;
 
     const useStyles = makeStyles((theme) => ({
         toolbarIcon: {
+            color: '#f2f4ff',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'flex-end',
@@ -29,7 +30,8 @@ function SideBar(){
                 easing: theme.transitions.easing.sharp,
                 duration: theme.transitions.duration.enteringScreen,
             }),
-            background: 'silver',
+            background: '#343747',
+            color: '#f2f4ff'
         },
         drawerPaperClose: {
             overflowX: 'hidden',
@@ -56,37 +58,41 @@ function SideBar(){
     };
     return (
         <>
-            <Drawer
-                variant="permanent"
-                classes={{
-                    paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
-                }}
-                open={open}
-            >
-                <div className={classes.toolbarIcon}>{open === true ?
-                    <IconButton onClick={handleDrawerClose}>
-                        <ChevronLeftIcon />
-                    </IconButton>
-                    :
-                    <IconButton
-                        edge="start"
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
+            {isLoggedIn() ?
+                <>
+                    <Drawer
+                        variant="permanent"
+                        classes={{
+                            paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
+                        }}
+                        open={open}
                     >
-                        <MenuIcon />
-                    </IconButton>}
-                </div>
-                <br />
-                <br />
-                <br />
-                <Divider />
-                <List>{isLoggedIn() ? mainListItems : secondaryListItems}</List>
-                
-            </Drawer>
+                        <div className={classes.toolbarIcon}>{open === true ?
+                            <IconButton onClick={handleDrawerClose}>
+                                <ChevronLeftIcon />
+                            </IconButton>
+                            :
+                            <IconButton
+                                edge="start"
+                                color="inherit"
+                                aria-label="open drawer"
+                                onClick={handleDrawerOpen}
+                                className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
+                            >
+                                <MenuIcon />
+                            </IconButton>}
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <Divider />
+                        <List>{mainListItems}</List>
+
+                    </Drawer>
+                </>
+                : ''}
         </>
     );
-} 
+}
 
 export default SideBar;

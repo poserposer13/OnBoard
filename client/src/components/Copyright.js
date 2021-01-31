@@ -12,6 +12,7 @@ function Copyright() {
             bottom: 0,
             marginLeft: 10,
             paddingBottom: 15,
+            color: '#f2f4ff'
         }
     }));
 
@@ -24,7 +25,7 @@ function Copyright() {
                 OnBoard
             </Link>{' '}
             {new Date().getFullYear()}
-            {'.'}
+            {''}
         </Typography>
     );
 }

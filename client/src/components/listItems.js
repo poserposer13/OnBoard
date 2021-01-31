@@ -2,7 +2,6 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ListIcon from '@material-ui/icons/List';
 import DescriptionIcon from '@material-ui/icons/Description';
@@ -11,7 +10,6 @@ import PolicyIcon from '@material-ui/icons/Policy';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import Copyright from './Copyright';
-
 
 function ListItemLink(props) {
     return <ListItem button component="a" {...props} />;
@@ -22,54 +20,53 @@ export const mainListItems = (
         <div>
             <ListItemLink href='/' button>
                 <ListItemIcon>
-                    <DashboardIcon />
+                    <DashboardIcon style={{color: '#f2f4ff' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" />
             </ListItemLink>
             <ListItemLink href='/tasks' button>
                 <ListItemIcon>
-                    <ListIcon />
+                    <ListIcon style={{color: '#f2f4ff' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Tasks" />
             </ListItemLink>
             <ListItemLink href='/mydocuments' button>
                 <ListItemIcon>
-                    <DescriptionIcon />
+                    <DescriptionIcon style={{color: '#f2f4ff' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Documents" />
             </ListItemLink>
             <ListItemLink href='/team' button>
                 <ListItemIcon>
-                    <PeopleIcon />
+                    <PeopleIcon style={{color: '#f2f4ff' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Team" />
             </ListItemLink>
             <ListItemLink href='/policies' button>
                 <ListItemIcon>
-                    <PolicyIcon />
+                    <PolicyIcon style={{color: '#f2f4ff' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Policies" />
             </ListItemLink>
             <ListItemLink href='/training' button>
                 <ListItemIcon>
-                    <MenuBookIcon />
+                    <MenuBookIcon style={{color: '#f2f4ff' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Training" />
             </ListItemLink>
-            <Copyright />
+            <Copyright style={{color: '#f2f4ff' }}/>
         </div>
-        
+
     </>
 );
 
 export const secondaryListItems = (
     <div>
-        <ListSubheader inset>Hello</ListSubheader>
         <ListItemLink href='/admin' button>
             <ListItemIcon>
-                <LockOpenIcon />
+                <LockOpenIcon style={{color: '#f2f4ff' }} />
             </ListItemIcon>
-            <ListItemText primary="Admin?" />
+            <ListItemText style={{color: '#f2f4ff' }} primary="Admin?" />
         </ListItemLink>
     </div>
 );

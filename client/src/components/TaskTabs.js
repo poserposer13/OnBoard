@@ -137,7 +137,7 @@ export default function FullWidthTabs(props) {
                                 );
                             })} </ol>
                         :
-                        <div style={{ textAlign: 'center', width: '100%', color: '#696969', lineHeight: '1rem', letterSpacing: '0.15rem' }}>
+                        <div style={{ textAlign: 'center', width: '100%', color: '#696969', lineHeight: '1rem', letterSpacing: '0.12rem' }}>
                             <CelebrationLogo style={{ height: 353, width: 336 }} />
                             <div>
                                 <h3> Great job! You're all caught up on your tasks. </h3>
@@ -162,7 +162,7 @@ export default function FullWidthTabs(props) {
                             );
                         })} </ol>
                         :
-                        <div style={{ textAlign: 'center', width: '100%', color: '#696969', lineHeight: '1rem', letterSpacing: '0.15rem' }}>
+                        <div style={{ textAlign: 'center', width: '100%', color: '#696969', lineHeight: '1rem', letterSpacing: '0.12rem' }}>
                             <NotCompleteLogo style={{ height: 353, width: 336 }} />
                             <div>
                                 <h3>No tasks have been completed yet.</h3>
