@@ -33,14 +33,14 @@ function Header() {
         },
         menuButton: {
             marginRight: 36,
-            color: 'black'
+            color: 'white'
         },
         menuButtonHidden: {
             display: 'none',
         },
         title: {
             flexGrow: 1,
-            color: 'black'
+            color: 'white'
         },
     }));
     const { getProfile, isLoggedIn, logout } = useAuth();
@@ -66,7 +66,7 @@ function Header() {
                     <Typography>
                         {isLoggedIn() ?
                             <>
-                                <Button startIcon={<LockIcon />} variant='outlined' size='large' onClick={() => logout()} to='/login'>Logout</Button>
+                                <Button startIcon={<LockIcon />} style={{color: 'white'}} size='large' onClick={() => logout()} to='/login'>Logout</Button>
                             </>
                             :
                             <>
