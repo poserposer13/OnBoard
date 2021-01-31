@@ -2,7 +2,7 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import DashboardIcon from '@material-ui/icons/Dashboard';
+// import DashboardIcon from '@material-ui/icons/Dashboard';
 import ListIcon from '@material-ui/icons/List';
 import DescriptionIcon from '@material-ui/icons/Description';
 import PeopleIcon from '@material-ui/icons/People';
@@ -18,12 +18,12 @@ function ListItemLink(props) {
 export const mainListItems = (
     <>
         <div>
-            <ListItemLink href='/' button>
+            {/* <ListItemLink href='/' button>
                 <ListItemIcon>
                     <DashboardIcon style={{color: '#f2f4ff' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" />
-            </ListItemLink>
+            </ListItemLink> */}
             <ListItemLink href='/tasks' button>
                 <ListItemIcon>
                     <ListIcon style={{color: '#f2f4ff' }}/>

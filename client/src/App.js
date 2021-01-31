@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import useAuth from './hooks/auth';
-import Home from './pages/Home';
+// import Home from './pages/Home';
 import Login from './pages/Login';
 import Tasks from './pages/Tasks';
 import MyDocuments from './pages/MyDocuments';
@@ -76,9 +76,9 @@ function App() {
                                 <Route path='/login'>
                                     <Login />
                                 </Route>
-                                <PrivateRoute exact path='/'>
-                                    <Home />
-                                </PrivateRoute>
+                                {/* <PrivateRoute exact path='/'>
+                                    <Tasks />
+                                </PrivateRoute> */}
                                 <PrivateRoute exact path='/tasks'>
                                     <Tasks />
                                 </PrivateRoute>
