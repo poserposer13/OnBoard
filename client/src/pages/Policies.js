@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 // import nda from '.././assets/nda.png';
 // import nonCompete from '.././assets/nonCompete.png';
 import empHandbook from '.././assets/empHandbook.png';
+import confidentiality from '.././assets/confidentiality.png';
 import { ReactComponent as PolicyLogo } from '../undraw/policy.svg';
 import Modal from '@material-ui/core/Modal';
 
@@ -196,7 +197,7 @@ function Policies() {
                 <div className='col' style={{ margin: '10px' }}>
                     <div className='row' style={{display: 'flex', justifyContent: 'center'}}>
                         <Button variant="outlined" color="primary" onClick={handleToggle2} style={{ margin: '10px' }}>
-                            <img src={empHandbook} alt="non-compete-agreement" style={{ height: '400px', width: '320px' }} />
+                            <img src={confidentiality} alt="non-compete-agreement" style={{ height: '400px', width: '320px' }} />
                         </Button>
                     </div>
 
@@ -251,7 +252,7 @@ function Policies() {
 
             </Backdrop>
             <Backdrop className={classes.backdrop} open={open2} onClick={handleClose2}>
-                <img src={empHandbook} alt="non-disclosure-agreement" style={{ height: '800px', width: '640px' }} />
+                <img src={confidentiality} alt="non-disclosure-agreement" style={{ height: '800px', width: '640px' }} />
             </Backdrop>
             <Backdrop className={classes.backdrop} open={open3} onClick={handleClose3}>
                 <img src={empHandbook} alt="non-disclosure-agreement" style={{ height: '800px', width: '640px' }} />
