@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../hooks/auth';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -62,7 +62,7 @@ const Login = () => {
     };
 
     if (isLoggedIn()) {
-        console.log('logged in');
+        return <Redirect to={location.state} />;
     }
 
     return (
