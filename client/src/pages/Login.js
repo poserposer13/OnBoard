@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Redirect, useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../hooks/auth';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -61,9 +61,9 @@ const Login = () => {
         });
     };
 
-    // if (isLoggedIn()) {
-    //     return <Redirect to={'/task'} />;
-    // }
+    if (isLoggedIn()) {
+        console.log('logged in');
+    }
 
     return (
         <div>
