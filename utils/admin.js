@@ -48,7 +48,7 @@ module.exports = adminRouter = AdminBroExpress.buildAuthenticatedRouter(adminBro
         const user = await User.findOne({ email });
         if (user) {
             const matched = bcrypt.compare(password, user.password);
-            if (matched) {
+            if (matched && user.isAdmin === true) {
                 return user;
             }
         }
@@ -57,5 +57,5 @@ module.exports = adminRouter = AdminBroExpress.buildAuthenticatedRouter(adminBro
     cookiePassword: 'some-secret-password-used-to-secure-cookie',
 });
 
-// condition to lock backend, do not inclued after if(matched ) until production
+// condition to lock backend, do not include after if(matched ) until production
 // && user.isAdmin === true
