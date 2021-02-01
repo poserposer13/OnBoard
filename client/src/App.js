@@ -73,7 +73,10 @@ function App() {
                     <Box pt={4}>
                         <Router>
                             <Switch>
-                                <Route path='/'>
+                                <Route exact path='/'>
+                                    <Login />
+                                </Route>
+                                <Route exact path='/login'>
                                     <Login />
                                 </Route>
                                 {/* <PrivateRoute exact path='/'>
