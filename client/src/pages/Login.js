@@ -61,9 +61,9 @@ const Login = () => {
         });
     };
 
-    if (isLoggedIn()) {
-        return <Redirect to={location.state} />;
-    }
+    // if (isLoggedIn()) {
+    //     return <Redirect to={'/task'} />;
+    // }
 
     return (
         <div>
