@@ -39,9 +39,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './client/build/index.html'));
-});
+
 
 
 mongoose
@@ -87,6 +85,10 @@ mongoose
         const routes = require('./controllers')(gfs, upload);
 
         app.use(routes);
+
+        app.get('*', (req, res) => {
+            res.sendFile(path.join(__dirname, './client/build/index.html'));
+        });
 
         app.listen(PORT, function () {
             console.log(`Server now on port ${PORT}!`);
