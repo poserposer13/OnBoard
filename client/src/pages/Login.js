@@ -62,7 +62,7 @@ const Login = () => {
     };
 
     if (isLoggedIn()) {
-        return <Redirect to={location.state} />;
+        return <Redirect to={location.state || '/'} />;
     }
 
     return (
