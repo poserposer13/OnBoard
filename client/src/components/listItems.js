@@ -23,7 +23,7 @@ export const mainListItems = (
                     <DashboardIcon style={{color: '#f2f4ff' }}/>
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" />
-            </ListItemLink> */}
+            </ListItemLink>  */}
             <ListItemLink style={{color: 'white'}} href='/tasks' button>
                 <ListItemIcon>
                     <ListIcon style={{color: '#f2f4ff' }}/>
